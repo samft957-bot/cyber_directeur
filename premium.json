@@ -1,0 +1,966 @@
+{
+  "premium": [
+    {
+      "title": "Réseaux informatiques — de ton Wi-Fi à Internet",
+      "html": "<div class=\"premium-only premium-academy\"><header class=\"premium-intro\"><span class=\"eyebrow\">CYBERDIRECTEUR ACADÉMIE · MODULE 1/6</span><h2>Réseaux informatiques — de ton Wi-Fi à Internet</h2><p>Ce parcours est rédigé pour les débutants. Lis chaque leçon dans l’ordre, essaie l’exercice avant d’afficher le corrigé, puis explique le concept avec tes propres mots. Aucun exercice ne demande d’agir sur un système qui ne t’appartient pas.</p><div class=\"lesson-metrics\"><span>📘 8 leçons</span><span>✍️ 8 exercices corrigés</span><span>🎯 Débutant → pratique</span></div><nav aria-label=\"Sommaire du module\" class=\"premium-toc\"><strong>Au programme</strong><ol><li>Internet, réseau local et équipements</li><li>Les adresses IP, le masque et la passerelle</li><li>Les paquets, TCP et UDP</li><li>DNS : trouver un serveur par son nom</li><li>HTTP, HTTPS et certificats</li><li>Pare-feu, ports et segmentation</li><li>Diagnostiquer sans attaquer</li><li>Mission RSSI : protéger un petit réseau</li></ol></nav></header><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 1 / 8 · Fondations</span><h2>Internet, réseau local et équipements</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Un réseau est un ensemble d’appareils capables de communiquer. Chez toi, le réseau local (LAN) relie des appareils proches : ordinateur, téléphone, imprimante et routeur. Internet relie énormément de réseaux entre eux. Le routeur fait passer les données entre ton réseau et d’autres réseaux ; le commutateur (switch) relie des équipements d’un même réseau. Le Wi-Fi est un moyen de se connecter sans câble, pas un synonyme d’Internet.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Ta tablette peut être connectée au Wi-Fi, mais si la connexion du fournisseur est coupée, elle ne peut pas consulter un site extérieur. Elle reste pourtant reliée aux appareils locaux.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Dessine quatre cases : ordinateur, routeur, fournisseur Internet et serveur du site. Relie-les dans l’ordre parcouru par une demande.</p><details><summary>Afficher un corrigé expliqué</summary><p>Ordinateur → routeur → réseau du fournisseur → Internet → serveur. La réponse revient par un chemin réseau. Le trajet précis peut varier.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Un Wi-Fi qui fonctionne ne prouve pas qu’Internet est accessible.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>En pratique, fais la différence entre le réseau de ta maison, ton fournisseur Internet et le serveur distant. Une panne sur l’un ne signifie pas forcément une panne des autres.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Internet, réseau local et équipements » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 2 / 8 · Fondations</span><h2>Les adresses IP, le masque et la passerelle</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Une adresse IP identifie une interface dans un réseau IP. En IPv4, elle ressemble à 192.168.1.20. Les adresses privées comme 192.168.x.x servent couramment aux réseaux internes. Le masque ou préfixe réseau, par exemple /24, indique quelle partie décrit le réseau. La passerelle par défaut est l’équipement vers lequel ton appareil envoie les paquets destinés à d’autres réseaux. En IPv6, les adresses sont plus longues et leur fonctionnement présente d’autres particularités.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Un ordinateur en 192.168.1.20/24 peut généralement joindre directement un appareil en 192.168.1.50/24, mais envoie une demande vers Internet à sa passerelle.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Dans un plan fictif, note l’IP 192.168.1.20, un masque /24 et une passerelle 192.168.1.1. Identifie l’appareil et la fonction de chaque élément.</p><details><summary>Afficher un corrigé expliqué</summary><p>192.168.1.20 est l’adresse locale de l’ordinateur ; /24 précise la partie réseau ; 192.168.1.1 est une adresse possible de passerelle. Ce n’est pas une règle universelle.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>IP, réseau et passerelle remplissent trois rôles différents.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un appareil peut recevoir une adresse privée à la maison, tandis que ton routeur possède aussi une connexion vers Internet. Le masque permet de reconnaître quelles adresses sont locales.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Les adresses IP, le masque et la passerelle » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 3 / 8 · Fondations</span><h2>Les paquets, TCP et UDP</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Les informations circulent souvent sous forme de paquets IP. TCP organise une communication fiable : il suit les segments envoyés, détecte les pertes et permet leur retransmission. UDP offre un transport plus simple, sans garantie intégrée de livraison ni d’ordre. Les applications choisissent le protocole selon leurs besoins. Il n’existe pas un protocole toujours meilleur.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Un téléchargement de fichier utilise couramment TCP afin de récupérer correctement son contenu. Certaines communications en temps réel utilisent UDP pour privilégier la réactivité.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Classe deux besoins : transférer un document complet ; transmettre des données vocales en temps réel. Explique ce que la perte de quelques données changerait.</p><details><summary>Afficher un corrigé expliqué</summary><p>Le document exige que toutes les données arrivent correctement ; TCP est un choix courant. La voix supporte parfois une petite perte mieux qu’un grand retard ; UDP peut convenir.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>La fiabilité et la latence sont deux critères différents.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Les paquets sont de petits morceaux de données. TCP privilégie le suivi et la remise dans l’ordre ; UDP fournit un transport plus simple sans les mêmes garanties de livraison.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Les paquets, TCP et UDP » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 4 / 8 · Approfondissement</span><h2>DNS : trouver un serveur par son nom</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Le DNS est un système de résolution de noms. Quand tu écris une adresse web, ton navigateur doit trouver les informations qui lui permettent de joindre le service. Il peut consulter un cache local puis un résolveur DNS. Les enregistrements A et AAAA peuvent donner respectivement une adresse IPv4 et IPv6 ; CNAME indique un alias. Un cache accélère les consultations répétées. Le DNS ne vérifie pas automatiquement qu’un site est honnête.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Ton navigateur connaît exemple.org mais pas forcément son adresse IP ; il demande une réponse DNS avant de se connecter au serveur.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Explique pourquoi un site peut devenir inaccessible à cause d’un DNS défaillant, même si le serveur fonctionne.</p><details><summary>Afficher un corrigé expliqué</summary><p>Sans réponse de résolution et sans information déjà disponible, ton navigateur ne sait pas nécessairement à quelle adresse joindre le serveur. La panne concerne alors la découverte, pas forcément le serveur.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>DNS = noms vers informations réseau, pas antivirus.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Lorsque tu saisis un nom de site, le DNS peut répondre depuis un cache. Un échec DNS ne prouve pas que le site lui-même est en panne.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « DNS : trouver un serveur par son nom » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 5 / 8 · Approfondissement</span><h2>HTTP, HTTPS et certificats</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>HTTP définit la manière dont le navigateur et le serveur échangent des requêtes et des réponses. HTTPS ajoute TLS : les échanges sont chiffrés pendant le transport et le navigateur vérifie un certificat pour authentifier le nom du serveur. Cela protège contre certaines interceptions, sans garantir que le commerçant ou le contenu du site est fiable. Un code HTTP 200 indique normalement une réponse réussie ; 404 indique une ressource introuvable.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Une page de connexion HTTPS protège la transmission du mot de passe. Une page d’arnaque peut néanmoins utiliser HTTPS.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Un élève affirme « il y a un cadenas, donc le site ne peut pas être une arnaque ». Explique son erreur.</p><details><summary>Afficher un corrigé expliqué</summary><p>Le cadenas indique surtout une connexion chiffrée et une vérification d’identité du serveur pour le domaine. Il n’établit pas la bonne foi de l’organisation. Il faut contrôler aussi l’adresse et le contexte.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>HTTPS protège le canal, pas toutes les intentions du site.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Le cadenas HTTPS indique une connexion chiffrée vers le domaine vérifié, pas la fiabilité commerciale du vendeur. Le certificat participe à l’authentification du serveur.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « HTTP, HTTPS et certificats » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 6 / 8 · Approfondissement</span><h2>Pare-feu, ports et segmentation</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Un port réseau sert à distinguer des services sur un appareil ; par exemple HTTPS utilise fréquemment TCP 443. Un pare-feu applique des règles qui autorisent ou refusent des communications. Une segmentation de réseau sépare des ensembles d’appareils pour limiter les accès inutiles. Le principe du moindre privilège consiste à permettre seulement ce qui est nécessaire. Ces protections doivent être pensées et testées, car une règle trop large augmente l’exposition.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Dans une école, les ordinateurs des élèves et les serveurs administratifs peuvent être placés dans des zones distinctes avec des règles de communication.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Pour un réseau fictif, explique pourquoi les ordinateurs invités ne devraient pas accéder directement aux dossiers des enseignants.</p><details><summary>Afficher un corrigé expliqué</summary><p>La séparation réduit la probabilité qu’un appareil invité puisse atteindre des données confidentielles. La sécurité exige aussi des comptes, des permissions et des mises à jour.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Une séparation réseau limite les possibilités de circulation.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un pare-feu applique des règles de communication et une segmentation limite les déplacements inutiles entre des groupes d’appareils. Ce sont deux protections complémentaires.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Pare-feu, ports et segmentation » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 7 / 8 · Mise en pratique</span><h2>Diagnostiquer sans attaquer</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Un diagnostic commence par des hypothèses simples : l’appareil est-il connecté au réseau ? Les autres services fonctionnent-ils ? Le nom de domaine est-il correct ? Le site est-il temporairement indisponible ? On avance en observant, sans analyser des équipements qui ne nous appartiennent pas. En entreprise, le diagnostic suit les procédures et autorisations prévues.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Si un seul site ne s’ouvre pas mais que les autres fonctionnent, tu peux suspecter un problème propre au site ou à sa résolution plutôt qu’une panne générale du Wi-Fi.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Établis une liste de quatre observations sûres à faire lorsqu’un site ne s’ouvre pas.</p><details><summary>Afficher un corrigé expliqué</summary><p>Vérifier la connexion locale, essayer un autre site fiable, relire l’adresse saisie et consulter les informations de panne officielles. Ne lance aucun scan sur un réseau tiers.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Commence toujours par les faits observables.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Observe uniquement tes propres paramètres réseau : adresse, passerelle et serveur DNS. Note ce que tu vois sans modifier les réglages.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Diagnostiquer sans attaquer » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 8 / 8 · Mise en pratique</span><h2>Mission RSSI : protéger un petit réseau</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Le RSSI transforme les connaissances réseaux en décisions : connaître les services essentiels, lister les responsables, établir les règles d’accès, prévoir des sauvegardes et mesurer la disponibilité. Une carte réseau tenue à jour et un inventaire des équipements facilitent la réponse à une panne ou à un incident. Le RSSI priorise les efforts selon le risque métier, plutôt que d’acheter au hasard du matériel.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Une petite entreprise dispose d’une boutique en ligne, d’un réseau Wi-Fi invité et d’un système de caisse. Une panne de caisse est plus urgente qu’une panne d’écran décoratif.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Rédige trois priorités réseau pour cette entreprise avec une justification de chacune.</p><details><summary>Afficher un corrigé expliqué</summary><p>Exemple : isoler le Wi-Fi invité (confidentialité), documenter la caisse et son accès (continuité), surveiller et sauvegarder les configurations essentielles (rétablissement). D’autres réponses justifiées sont possibles.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Le bon choix technique dépend de l’activité à protéger.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Dans une PME fictive, commence par recenser les appareils, mettre à jour les équipements et séparer les accès invités des équipements internes.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Mission RSSI : protéger un petit réseau » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card\"><h2>Pour approfondir auprès de sources reconnues</h2><p>Ces liens servent de références pédagogiques. Les explications et exemples de ce cours sont rédigés spécialement pour CyberDirecteur ; ils ne constituent pas une traduction des contenus des organismes.</p><ul class=\"source-links\"><li><a href=\"https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20-french-translation\" rel=\"noopener noreferrer\" target=\"_blank\">NIST CSF 2.0</a></li><li><a href=\"https://cyber.gouv.fr/\" rel=\"noopener noreferrer\" target=\"_blank\">ANSSI — Cyber.gouv.fr</a></li></ul></section></div><p class=\"source-links\">Pour aller plus loin : <a href=\"https://www.cloudflare.com/learning/network-layer/what-is-a-computer-network/\" rel=\"noopener noreferrer\" target=\"_blank\">documentation spécialisée (source externe)</a>.</p>"
+    },
+    {
+      "title": "Linux — comprendre et administrer prudemment",
+      "html": "<div class=\"premium-only premium-academy\"><header class=\"premium-intro\"><span class=\"eyebrow\">CYBERDIRECTEUR ACADÉMIE · MODULE 2/6</span><h2>Linux — comprendre et administrer prudemment</h2><p>Ce parcours est rédigé pour les débutants. Lis chaque leçon dans l’ordre, essaie l’exercice avant d’afficher le corrigé, puis explique le concept avec tes propres mots. Aucun exercice ne demande d’agir sur un système qui ne t’appartient pas.</p><div class=\"lesson-metrics\"><span>📘 8 leçons</span><span>✍️ 8 exercices corrigés</span><span>🎯 Débutant → pratique</span></div><nav aria-label=\"Sommaire du module\" class=\"premium-toc\"><strong>Au programme</strong><ol><li>Qu’est-ce qu’un système d’exploitation ?</li><li>Comprendre l’arborescence des fichiers</li><li>Lire des commandes sans risque</li><li>Utilisateurs, groupes et permissions</li><li>Processus et services</li><li>Mises à jour et correctifs</li><li>Journaux et traces utiles</li><li>Mission RSSI : durcir un serveur</li></ol></nav></header><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 1 / 8 · Fondations</span><h2>Qu’est-ce qu’un système d’exploitation ?</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Un système d’exploitation gère les ressources : mémoire, processeur, fichiers, périphériques et comptes. Linux désigne notamment un noyau, utilisé avec d’autres logiciels dans des distributions telles que Debian ou Ubuntu. Beaucoup de serveurs utilisent Linux pour héberger des services. Le terminal est un moyen de donner des instructions textuelles, mais il ne faut pas apprendre des commandes sans comprendre leurs effets.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Lorsqu’un site web fonctionne sur un serveur Linux, le système attribue des ressources au logiciel qui répond aux visiteurs.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Explique la différence entre l’ordinateur physique, Linux et le logiciel de site web.</p><details><summary>Afficher un corrigé expliqué</summary><p>Le matériel exécute les opérations, Linux coordonne les ressources, et le serveur web fournit les pages à la demande.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Le système d’exploitation est l’intermédiaire entre matériel et applications.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Le système d’exploitation gère les programmes, les périphériques et les accès. Une application ne devrait pas avoir automatiquement tous les droits.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Qu’est-ce qu’un système d’exploitation ? » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 2 / 8 · Fondations</span><h2>Comprendre l’arborescence des fichiers</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Sur Linux, les chemins commencent à la racine « / ». Le répertoire /home contient couramment les fichiers des utilisateurs ; /etc contient de nombreux réglages système ; /var contient des données variables, dont certains journaux. Le chemin absolu décrit l’emplacement depuis la racine ; un chemin relatif dépend du dossier courant. Les noms sont sensibles à la casse : Note.txt et note.txt sont différents.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>/home/alex/documents/notes.txt indique un fichier notes.txt dans documents, qui se trouve dans le dossier personnel alex.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Sur papier, indique le dossier parent de /home/alex/documents/notes.txt et si le chemin est absolu.</p><details><summary>Afficher un corrigé expliqué</summary><p>Le parent immédiat est /home/alex/documents ; le chemin est absolu puisqu’il commence par /.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Savoir lire un chemin évite bien des erreurs.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un chemin comme /home/eleve/document.txt situe un fichier dans une arborescence. Un chemin absolu indique son emplacement complet.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Comprendre l’arborescence des fichiers » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 3 / 8 · Fondations</span><h2>Lire des commandes sans risque</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>pwd affiche le répertoire de travail courant ; ls liste le contenu d’un dossier ; cd change de dossier ; cat affiche un fichier texte. Les commandes ont des arguments et parfois des options. Le terminal n’est pas dangereux en soi, mais certaines commandes modifient ou effacent des fichiers : il faut donc comprendre l’objectif avant toute exécution. Dans ce cours, les exercices restent sur papier.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>« ls /home » signifie demander la liste du dossier /home. L’instruction n’ajoute ni ne supprime de fichier.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Traduis en français les instructions pwd, ls et cd sans les exécuter.</p><details><summary>Afficher un corrigé expliqué</summary><p>pwd : indiquer où l’on se trouve ; ls : lister ; cd : changer de dossier.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Comprendre la commande précède son exécution.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Une commande se lit comme une instruction au système. Avant de l’exécuter, identifie ce qu’elle lit ou modifie et vérifie la documentation officielle.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Lire des commandes sans risque » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 4 / 8 · Approfondissement</span><h2>Utilisateurs, groupes et permissions</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Linux distingue des comptes utilisateurs et des groupes. Les permissions classiques sont r (lecture), w (écriture) et x (exécution ou traversée de dossier). Elles peuvent être attribuées au propriétaire, au groupe et aux autres. Le modèle doit être adapté aux données ; il ne faut pas accorder tous les droits simplement pour corriger un problème d’accès.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Un document de paie ne doit pas être modifiable par tous les comptes du serveur. Le service concerné reçoit uniquement les droits nécessaires.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Un utilisateur doit consulter un rapport sans pouvoir le modifier : quels types de droits faut-il envisager ?</p><details><summary>Afficher un corrigé expliqué</summary><p>Le droit de lecture est utile ; le droit d’écriture n’est pas nécessaire pour ce besoin. Le paramétrage exact dépend aussi des dossiers parents.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Moins de permissions = moins de dommages possibles.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Lire, modifier et exécuter sont trois autorisations différentes. Le moindre privilège aide à limiter les erreurs et les abus.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Utilisateurs, groupes et permissions » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 5 / 8 · Approfondissement</span><h2>Processus et services</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Un processus est un programme en cours d’exécution. Un serveur peut exécuter plusieurs services, dont un service web. Certains services démarrent automatiquement. Les ressources CPU et mémoire sont limitées ; surveiller leur usage aide à repérer les surcharges et les dysfonctionnements. Mais une consommation élevée ne signifie pas automatiquement une attaque.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Un service de sauvegarde peut fonctionner à heure fixe et utiliser beaucoup de ressources pendant quelques minutes.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Pourquoi faut-il vérifier le contexte avant de considérer une activité du serveur comme suspecte ?</p><details><summary>Afficher un corrigé expliqué</summary><p>Une activité inhabituelle peut correspondre à une opération légitime prévue. Le contexte et les journaux aident à distinguer les causes.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Une alerte est un signal à examiner, pas une preuve.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un processus est un programme en cours d’exécution ; un service peut fonctionner sans fenêtre ouverte. Il faut savoir lequel est réellement nécessaire.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Processus et services » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 6 / 8 · Approfondissement</span><h2>Mises à jour et correctifs</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Les développeurs publient des correctifs pour réparer des bugs et des failles. Installer une mise à jour réduit certains risques, mais peut aussi nécessiter des tests et parfois un redémarrage. En entreprise, il faut connaître les versions, prévoir une fenêtre de maintenance et disposer d’un moyen de retour arrière. Les applications et bibliothèques doivent également être suivies.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Une boutique en ligne planifie une mise à jour de son serveur pendant une période peu fréquentée et vérifie que les sauvegardes sont récentes.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Écris trois vérifications avant une maintenance importante.</p><details><summary>Afficher un corrigé expliqué</summary><p>Exemple : confirmer la sauvegarde et la restauration, documenter la version actuelle, planifier un test du service après mise à jour.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Mettre à jour fait partie d’un processus, pas d’un clic isolé.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Une mise à jour peut corriger une vulnérabilité. Prévois aussi une sauvegarde et une solution de retour arrière pour les systèmes importants.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Mises à jour et correctifs » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 7 / 8 · Mise en pratique</span><h2>Journaux et traces utiles</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Les journaux (logs) enregistrent des événements : accès à un service, erreur, redémarrage ou changement de configuration. Ils permettent de comprendre ce qui s’est passé, à condition que les horloges soient cohérentes et que les journaux soient conservés de façon appropriée. Ils peuvent contenir des données personnelles ; leur consultation doit donc être limitée aux personnes autorisées.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Un site affiche une erreur à 14 h 05. Les journaux d’application à cette heure aident l’équipe à retrouver la cause.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Pourquoi une horloge correcte est-elle importante pour comparer les journaux de deux serveurs ?</p><details><summary>Afficher un corrigé expliqué</summary><p>Si les heures diffèrent, un même événement semble se produire dans le mauvais ordre. La synchronisation aide à reconstituer les faits.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Un journal est utile lorsqu’on peut lui faire confiance et l’interpréter.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un journal horodaté aide à reconstituer des événements. Un événement inhabituel mérite examen mais n’est pas automatiquement la preuve d’une attaque.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Journaux et traces utiles » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 8 / 8 · Mise en pratique</span><h2>Mission RSSI : durcir un serveur</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Le durcissement consiste à réduire les fonctions et accès inutiles : inventaire des logiciels, comptes limités, correctifs, sauvegardes, surveillance et configuration documentée. La sécurité ne repose jamais sur un seul outil. Le RSSI demande des preuves : suivi des mises à jour, tests de restauration, revues de comptes et gestion des changements.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Une association héberge un petit site sur Linux. Un ancien compte administrateur inutilisé existe encore, et les sauvegardes ne sont jamais testées.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Choisis deux actions prioritaires et explique pourquoi elles réduisent le risque.</p><details><summary>Afficher un corrigé expliqué</summary><p>Supprimer ou désactiver les accès inutiles réduit les possibilités d’usage abusif ; tester la restauration confirme que les sauvegardes sont réellement exploitables.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>La sécurité Linux combine configuration, suivi et preuve.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Durcir un serveur signifie réduire les accès et les composants inutiles, appliquer les correctifs, journaliser et vérifier régulièrement.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Mission RSSI : durcir un serveur » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card\"><h2>Pour approfondir auprès de sources reconnues</h2><p>Ces liens servent de références pédagogiques. Les explications et exemples de ce cours sont rédigés spécialement pour CyberDirecteur ; ils ne constituent pas une traduction des contenus des organismes.</p><ul class=\"source-links\"><li><a href=\"https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20-french-translation\" rel=\"noopener noreferrer\" target=\"_blank\">NIST CSF 2.0</a></li><li><a href=\"https://cyber.gouv.fr/\" rel=\"noopener noreferrer\" target=\"_blank\">ANSSI — Cyber.gouv.fr</a></li></ul></section></div><p class=\"source-links\">Pour aller plus loin : <a href=\"https://ubuntu.com/security\" rel=\"noopener noreferrer\" target=\"_blank\">documentation spécialisée (source externe)</a>.</p>"
+    },
+    {
+      "title": "Python — apprendre en programmant des outils défensifs",
+      "html": "<div class=\"premium-only premium-academy\"><header class=\"premium-intro\"><span class=\"eyebrow\">CYBERDIRECTEUR ACADÉMIE · MODULE 3/6</span><h2>Python — apprendre en programmant des outils défensifs</h2><p>Ce parcours est rédigé pour les débutants. Lis chaque leçon dans l’ordre, essaie l’exercice avant d’afficher le corrigé, puis explique le concept avec tes propres mots. Aucun exercice ne demande d’agir sur un système qui ne t’appartient pas.</p><div class=\"lesson-metrics\"><span>📘 8 leçons</span><span>✍️ 8 exercices corrigés</span><span>🎯 Débutant → pratique</span></div><nav aria-label=\"Sommaire du module\" class=\"premium-toc\"><strong>Au programme</strong><ol><li>Variables et types de données</li><li>Afficher, convertir et manipuler du texte</li><li>Conditions et comparaisons</li><li>Boucles et listes</li><li>Dictionnaires et données structurées</li><li>Fonctions et code réutilisable</li><li>Lire un CSV sans transformer les données</li><li>Mini-projet : un rapport de sécurité local</li></ol></nav></header><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 1 / 8 · Fondations</span><h2>Variables et types de données</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Python est un langage lisible qui permet d’automatiser des tâches. Une variable associe un nom à une valeur : total = 3. Les principaux types débutants sont int (nombre entier), float (nombre décimal), str (texte) et bool (vrai/faux). Le signe = affecte une valeur ; il ne signifie pas « est mathématiquement égal » dans une comparaison. Les noms doivent être explicites.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Dans alertes = 4, la variable alertes contient l’entier 4. Dans etat = \"OK\", etat contient du texte.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>À ton avis, quels sont les types de utilisateurs = 12 et serveur_ok = True ?</p><details><summary>Afficher un corrigé expliqué</summary><p>utilisateurs est un int ; serveur_ok est un bool. True est une valeur logique, pas une chaîne entre guillemets.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Un type détermine les opérations possibles sur une valeur.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Une variable garde une valeur à laquelle tu donnes un nom. Choisis un nom explicite et vérifie le type de données avant les calculs.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Variables et types de données » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 2 / 8 · Fondations</span><h2>Afficher, convertir et manipuler du texte</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>print() affiche un résultat. str() transforme une valeur en texte ; int() convertit un texte numérique en entier quand c’est possible. Les f-strings combinent texte et valeurs dans un message, par exemple f\"Alertes : {nombre}\". Une conversion peut échouer si les données ne correspondent pas au type attendu. Les entrées externes doivent toujours être considérées comme incertaines.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Si nombre = 2, print(f\"Alertes : {nombre}\") affiche Alertes : 2.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Sur papier, calcule le message affiché lorsque statut = \"sain\" et que l’on affiche f\"Serveur {statut}\".</p><details><summary>Afficher un corrigé expliqué</summary><p>Le message est Serveur sain. Les accolades demandent de remplacer le nom par sa valeur.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Un message clair est une petite étape vers des outils maintenables.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Une valeur venant d’un utilisateur est souvent du texte. Pour calculer, il faut parfois la convertir et prévoir les entrées invalides.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Afficher, convertir et manipuler du texte » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 3 / 8 · Fondations</span><h2>Conditions et comparaisons</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Une condition if permet d’exécuter un bloc seulement lorsqu’une expression est vraie. elif ajoute un cas, else gère les autres situations. Pour comparer des valeurs, on utilise ==, &gt;=, &lt;=, != et d’autres opérateurs. L’indentation indique le bloc d’instructions. Une règle de sécurité programmée doit être comprise et testée, car une mauvaise condition peut produire de fausses alertes.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Si alertes = 5 et si la règle est « si alertes &gt;= 3 : afficher À vérifier », alors le message apparaît.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Pour alertes = 2, la condition alertes &gt;= 3 est-elle vraie ? Explique sans exécuter de code.</p><details><summary>Afficher un corrigé expliqué</summary><p>Non : 2 est inférieur à 3. Le bloc conditionnel ne s’exécuterait pas dans ce cas.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Une condition transforme une règle en décision.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Une condition permet de choisir entre plusieurs actions. Commence par écrire la règle en français avant de la traduire en code.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Conditions et comparaisons » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 4 / 8 · Approfondissement</span><h2>Boucles et listes</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Une liste contient plusieurs valeurs, par exemple serveurs = [\"web\", \"sauvegarde\", \"mail\"]. Une boucle for peut parcourir chaque élément. len(liste) indique combien d’éléments elle contient. Les boucles évitent de répéter des opérations identiques, mais il faut vérifier l’étendue de l’action et l’effet attendu avant d’automatiser.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Un programme parcourt une liste de trois services pour afficher leur nom dans un rapport, sans les modifier.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Combien de lignes une boucle qui affiche chaque élément d’une liste de quatre services produira-t-elle ?</p><details><summary>Afficher un corrigé expliqué</summary><p>Quatre lignes, si elle imprime exactement une ligne par élément et ne rencontre pas d’erreur.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Les boucles traitent de nombreux éléments avec une même règle.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Une boucle répète un traitement ; une liste stocke plusieurs éléments ordonnés. Prévoyez un arrêt clair et des données de test.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Boucles et listes » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 5 / 8 · Approfondissement</span><h2>Dictionnaires et données structurées</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Un dictionnaire associe des clés à des valeurs, comme {\"nom\":\"web\", \"etat\":\"OK\"}. Il est utile pour représenter un service et ses propriétés. Un journal d’incidents peut être une liste de dictionnaires contenant un identifiant, une heure et un statut. Les données doivent être conservées avec le minimum d’informations personnelles nécessaires.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>{\"nom\":\"site\", \"etat\":\"incident\"} signifie que le service nommé site a actuellement un statut incident.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Propose trois clés pour représenter une sauvegarde, sans inclure de données personnelles.</p><details><summary>Afficher un corrigé expliqué</summary><p>Exemple : nom_service, date_sauvegarde et resultat_test. Les clés choisies doivent être cohérentes et explicites.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Structurer les données facilite leur interprétation.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un dictionnaire associe des clés à des valeurs. Il est pratique pour représenter un poste, son propriétaire et son niveau de mise à jour.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Dictionnaires et données structurées » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 6 / 8 · Approfondissement</span><h2>Fonctions et code réutilisable</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Une fonction regroupe une petite tâche et lui donne un nom. def niveau(risque): ... permet de traiter plusieurs valeurs selon la même règle. L’instruction return renvoie un résultat à l’endroit où la fonction a été appelée. Une fonction claire possède un rôle précis ; il faut aussi prévoir des cas inattendus et des tests.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Une fonction de mise en forme peut transformer un nombre d’alertes en texte pour un tableau de bord.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Explique la différence entre afficher une valeur et la renvoyer avec return.</p><details><summary>Afficher un corrigé expliqué</summary><p>Afficher montre une information à l’écran ; return donne une valeur utilisable par le reste du programme.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Une bonne fonction facilite la compréhension et les tests.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Une fonction réunit des opérations réutilisables. Donne-lui un rôle précis et teste son résultat sur de petits exemples.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Fonctions et code réutilisable » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 7 / 8 · Mise en pratique</span><h2>Lire un CSV sans transformer les données</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Le CSV est un format texte courant pour des tableaux, où chaque ligne décrit un enregistrement. Le module csv de Python aide à le lire correctement, notamment quand des cellules contiennent des séparateurs. Pour un exercice de sécurité, on peut compter des événements fictifs plutôt que collecter des informations personnelles. Évite de publier des fichiers de journaux réels sur un site.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Un fichier de démonstration contient les lignes : date,etat ; lundi,OK ; mardi,incident. Il décrit deux jours.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Combien de lignes de données contient cet exemple, sans compter l’en-tête ?</p><details><summary>Afficher un corrigé expliqué</summary><p>Deux : lundi et mardi. L’en-tête date,etat décrit les colonnes.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Comprendre les données est plus important que copier un script.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un CSV est un tableau en texte. Avant de le traiter, vérifie les en-têtes, les champs manquants et l’encodage.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Lire un CSV sans transformer les données » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 8 / 8 · Mise en pratique</span><h2>Mini-projet : un rapport de sécurité local</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Ton mini-projet consiste à concevoir un rapport d’état à partir de données inventées, sans connexion à un réseau. Les étapes sont : définir les données (services et états), compter les services indisponibles, afficher un message clair et tester un cas où tout va bien. Garde une trace de tes hypothèses. Un résultat automatique n’est jamais une preuve suffisante d’un incident.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Trois services fictifs : web=OK, mail=incident, sauvegarde=OK. Le rapport indique 1 service à examiner sur 3.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Imagine le cas où tous les services sont OK. Quel message un outil défensif devrait-il afficher ?</p><details><summary>Afficher un corrigé expliqué</summary><p>Par exemple : « Aucun incident signalé dans les données fournies ». Évite d’affirmer que le système est parfaitement sécurisé.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Un outil responsable exprime aussi ses limites.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Construis un rapport sur des données fictives : liste d’appareils, mises à jour et recommandations. N’y inscris aucune information sensible réelle.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Mini-projet : un rapport de sécurité local » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card\"><h2>Pour approfondir auprès de sources reconnues</h2><p>Ces liens servent de références pédagogiques. Les explications et exemples de ce cours sont rédigés spécialement pour CyberDirecteur ; ils ne constituent pas une traduction des contenus des organismes.</p><ul class=\"source-links\"><li><a href=\"https://docs.python.org/fr/3/tutorial/\" rel=\"noopener noreferrer\" target=\"_blank\">Documentation Python en français</a></li><li><a href=\"https://cyber.gouv.fr/\" rel=\"noopener noreferrer\" target=\"_blank\">ANSSI — Cyber.gouv.fr</a></li></ul></section></div><p class=\"source-links\">Pour aller plus loin : <a href=\"https://docs.python.org/fr/3/tutorial/\" rel=\"noopener noreferrer\" target=\"_blank\">documentation spécialisée (source externe)</a>.</p>"
+    },
+    {
+      "title": "Gestion des risques, triade CIA et conformité",
+      "html": "<div class=\"premium-only premium-academy\"><header class=\"premium-intro\"><span class=\"eyebrow\">CYBERDIRECTEUR ACADÉMIE · MODULE 4/6</span><h2>Gestion des risques, triade CIA et conformité</h2><p>Ce parcours est rédigé pour les débutants. Lis chaque leçon dans l’ordre, essaie l’exercice avant d’afficher le corrigé, puis explique le concept avec tes propres mots. Aucun exercice ne demande d’agir sur un système qui ne t’appartient pas.</p><div class=\"lesson-metrics\"><span>📘 8 leçons</span><span>✍️ 8 exercices corrigés</span><span>🎯 Débutant → pratique</span></div><nav aria-label=\"Sommaire du module\" class=\"premium-toc\"><strong>Au programme</strong><ol><li>Les trois objectifs CIA</li><li>Actif, menace, vulnérabilité et risque</li><li>Probabilité, impact et priorisation</li><li>Mesures de protection et risque résiduel</li><li>Le NIST CSF 2.0 expliqué simplement</li><li>Données personnelles et RGPD</li><li>Registre des risques</li><li>Étude de cas : budget limité dans une PME</li></ol></nav></header><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 1 / 8 · Fondations</span><h2>Les trois objectifs CIA</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>La confidentialité protège contre la consultation non autorisée ; l’intégrité protège contre une modification non autorisée ; la disponibilité garantit l’accès nécessaire aux services. Ces trois objectifs sont complémentaires. Une protection peut être forte sur un aspect et faible sur un autre. Le RSSI doit définir les priorités selon le type de données et les besoins des utilisateurs.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Les notes scolaires doivent rester privées (C), exactes (I), et accessibles aux personnes autorisées pendant les périodes prévues (A).</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Classe trois événements fictifs : lecture de notes sans permission, modification d’une note, panne du portail.</p><details><summary>Afficher un corrigé expliqué</summary><p>Lecture sans permission : confidentialité ; modification : intégrité ; panne : disponibilité. Un incident réel peut toucher plusieurs objectifs.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>CIA constitue une grille d’analyse, pas un produit.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>La confidentialité concerne l’accès, l’intégrité concerne l’exactitude, la disponibilité concerne l’accès au bon moment. Un même incident peut toucher plusieurs objectifs.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Les trois objectifs CIA » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 2 / 8 · Fondations</span><h2>Actif, menace, vulnérabilité et risque</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Un actif est un élément ayant une valeur : données, service, ordinateur ou réputation. Une menace est une cause possible de dommage ; une vulnérabilité est une faiblesse exploitable ; un risque combine la possibilité d’un événement et ses conséquences. Distinguer ces termes évite de confondre un problème technique et son impact sur l’activité.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Un ordinateur contenant la liste de clients est un actif. Un compte mal protégé est une faiblesse ; son utilisation abusive est un scénario de menace.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Dans « une sauvegarde jamais testée pourrait empêcher la reprise après une panne », identifie faiblesse et conséquence.</p><details><summary>Afficher un corrigé expliqué</summary><p>Faiblesse : sauvegarde non testée ; conséquence : impossibilité ou retard de restauration. Le risque dépend également de la probabilité de la panne.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Un risque se décrit comme un scénario, pas comme un simple objet.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un actif est ce qu’il faut protéger. La menace est ce qui pourrait nuire, la vulnérabilité est une faiblesse et le risque combine scénario et conséquence.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Actif, menace, vulnérabilité et risque » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 3 / 8 · Fondations</span><h2>Probabilité, impact et priorisation</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Une méthode pédagogique simple consiste à attribuer une probabilité de 1 à 3 et un impact de 1 à 3, puis multiplier les scores. Cette grille n’est pas une mesure scientifique universelle ; elle sert à comparer des situations si les critères sont cohérents. Un risque de disponibilité peut être prioritaire même sans attaque. Les décisions doivent être documentées et revues régulièrement.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Risque A : probabilité 3, impact 2, score 6. Risque B : probabilité 1, impact 3, score 3. La grille privilégie A, sous réserve de vérifier les hypothèses.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Calcule le score pédagogique d’un risque de probabilité 2 et impact 3, puis explique sa limite.</p><details><summary>Afficher un corrigé expliqué</summary><p>Score 6. Ce nombre ne remplace pas une étude sérieuse : les échelles sont subjectives et certains impacts majeurs nécessitent une priorité particulière.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Une grille simplifie la discussion, elle ne remplace pas le jugement.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Une estimation simple probabilité × impact aide à trier les risques, mais elle ne remplace pas les discussions sur les conséquences réelles.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Probabilité, impact et priorisation » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 4 / 8 · Approfondissement</span><h2>Mesures de protection et risque résiduel</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Face à un risque, on peut le réduire, l’éviter, le transférer partiellement ou l’accepter de manière justifiée. Une mesure peut diminuer la probabilité, l’impact ou les deux. Même après une protection, un risque résiduel subsiste. Une entreprise doit savoir qui accepte ce risque et sur quelle base.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Activer la MFA réduit le risque d’utilisation d’un mot de passe volé, mais ne supprime pas toutes les fraudes.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Pourquoi une sauvegarde quotidienne ne signifie-t-elle pas que le risque de perte de données a disparu ?</p><details><summary>Afficher un corrigé expliqué</summary><p>La sauvegarde peut échouer, être corrompue, être trop ancienne ou ne pas être restaurable. Des tests restent nécessaires.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Aucune protection ne rend un risque strictement nul.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Après une mesure de protection, il peut rester un risque résiduel. La direction doit décider s’il faut le réduire encore, le transférer ou l’accepter.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Mesures de protection et risque résiduel » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 5 / 8 · Approfondissement</span><h2>Le NIST CSF 2.0 expliqué simplement</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Le cadre NIST CSF 2.0 propose six fonctions : Govern (gouverner), Identify (identifier), Protect (protéger), Detect (détecter), Respond (répondre) et Recover (rétablir). Il aide une organisation à parler de ses objectifs de cybersécurité et à examiner ses pratiques. Ce n’est pas une certification automatique ni une recette technique universelle. La gouvernance concerne aussi les décisions, rôles et responsabilités.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Une PME inventorie ses serveurs (Identify), protège ses comptes (Protect), surveille ses alertes (Detect), puis dispose d’un plan de crise (Respond/Recover).</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Associe un plan de communication de crise à l’une des six fonctions. Justifie.</p><details><summary>Afficher un corrigé expliqué</summary><p>Respond est particulièrement pertinent : il s’agit d’organiser les actions et la communication lors d’un incident. La préparation relève aussi de la gouvernance.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Le NIST aide à structurer un programme complet.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Le NIST CSF 2.0 organise les résultats attendus en six fonctions : Govern, Identify, Protect, Detect, Respond et Recover.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Le NIST CSF 2.0 expliqué simplement » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 6 / 8 · Approfondissement</span><h2>Données personnelles et RGPD</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>En Europe, le RGPD encadre le traitement des données personnelles. Des principes importants sont : finalité déterminée, minimisation, durée de conservation adaptée, transparence et sécurité. Une donnée personnelle peut être un nom ou un identifiant permettant d’identifier une personne. Les obligations exactes dépendent du contexte ; un RSSI travaille avec les équipes juridiques et, lorsqu’il y en a un, le délégué à la protection des données.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Un site éducatif n’a pas besoin de demander une adresse postale pour enregistrer uniquement la progression des cours.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Une plateforme veut demander le numéro de téléphone de tous les élèves sans raison précise. Quel principe faut-il examiner ?</p><details><summary>Afficher un corrigé expliqué</summary><p>La minimisation : ne collecter que les données nécessaires à une finalité légitime et clairement expliquée.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Réduire la collecte est aussi une mesure de sécurité.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Une donnée personnelle peut concerner une personne identifiée ou identifiable. La collecte doit avoir une finalité et une base juridique appropriées.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Données personnelles et RGPD » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 7 / 8 · Mise en pratique</span><h2>Registre des risques</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Un registre de risques sert à garder les scénarios, actifs concernés, responsables, mesures prévues, échéances et décision finale. Il doit être compréhensible par les décideurs et régulièrement actualisé. Un tableau immense non suivi sert moins qu’une liste courte et correctement maintenue. Chaque mesure doit avoir un responsable et une date de contrôle.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Une association inscrit « impossibilité de rétablir le site », un responsable technique, une action « tester la restauration » et une date de vérification.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Propose les colonnes essentielles d’un registre simple pour trois risques fictifs.</p><details><summary>Afficher un corrigé expliqué</summary><p>Exemple : identifiant, scénario, impact, probabilité, responsable, mesure, échéance, statut.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>La gestion des risques exige des décisions suivies.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Dans un registre des risques, indique un scénario, un responsable, l’impact, la probabilité, les actions et une prochaine date de suivi.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Registre des risques » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 8 / 8 · Mise en pratique</span><h2>Étude de cas : budget limité dans une PME</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Une PME possède dix postes, une boutique en ligne et peu de moyens. Le RSSI doit d’abord connaître les actifs et les risques, puis retenir des actions mesurables : comptes renforcés, sauvegardes testées, mises à jour, sensibilisation et documentation. Il explique à la direction pourquoi certaines protections ont une meilleure valeur que d’autres, sans promettre une sécurité totale.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Budget fictif : 1 000 € disponibles pour améliorer la sécurité. Le RSSI justifie les mesures en fonction de leur effet sur l’activité.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Rédige une note de cinq lignes proposant trois priorités et une raison pour chacune.</p><details><summary>Afficher un corrigé expliqué</summary><p>Exemple : sécuriser les comptes administrateurs, tester les sauvegardes, mettre à jour les systèmes critiques ; les trois actions traitent des scénarios courants et mesurables. Le montant exact nécessite un devis.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Prioriser, expliquer et vérifier : trois habitudes de direction.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Quand le budget est limité, privilégie les protections simples qui réduisent plusieurs risques : MFA, sauvegardes testées et correctifs prioritaires.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Étude de cas : budget limité dans une PME » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card\"><h2>Pour approfondir auprès de sources reconnues</h2><p>Ces liens servent de références pédagogiques. Les explications et exemples de ce cours sont rédigés spécialement pour CyberDirecteur ; ils ne constituent pas une traduction des contenus des organismes.</p><ul class=\"source-links\"><li><a href=\"https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20-french-translation\" rel=\"noopener noreferrer\" target=\"_blank\">NIST CSF 2.0</a></li><li><a href=\"https://cyber.gouv.fr/\" rel=\"noopener noreferrer\" target=\"_blank\">ANSSI — Cyber.gouv.fr</a></li></ul></section></div><p class=\"source-links\">Pour aller plus loin : <a href=\"https://www.nist.gov/cyberframework\" rel=\"noopener noreferrer\" target=\"_blank\">documentation spécialisée (source externe)</a>.</p>"
+    },
+    {
+      "title": "Détection, incidents et continuité d’activité",
+      "html": "<div class=\"premium-only premium-academy\"><header class=\"premium-intro\"><span class=\"eyebrow\">CYBERDIRECTEUR ACADÉMIE · MODULE 5/6</span><h2>Détection, incidents et continuité d’activité</h2><p>Ce parcours est rédigé pour les débutants. Lis chaque leçon dans l’ordre, essaie l’exercice avant d’afficher le corrigé, puis explique le concept avec tes propres mots. Aucun exercice ne demande d’agir sur un système qui ne t’appartient pas.</p><div class=\"lesson-metrics\"><span>📘 8 leçons</span><span>✍️ 8 exercices corrigés</span><span>🎯 Débutant → pratique</span></div><nav aria-label=\"Sommaire du module\" class=\"premium-toc\"><strong>Au programme</strong><ol><li>Qu’est-ce qu’un incident ?</li><li>Préparation avant tout incident</li><li>Recevoir un signalement</li><li>Triage et gravité</li><li>Limiter l’impact et conserver les preuves</li><li>Rétablir un service</li><li>Communication de crise</li><li>Retours d’expérience et amélioration</li></ol></nav></header><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 1 / 8 · Fondations</span><h2>Qu’est-ce qu’un incident ?</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Un événement est un fait observé par un système. Une alerte est un signal nécessitant éventuellement une vérification. Un incident de sécurité est un événement ou un ensemble d’événements qui compromet ou menace sérieusement la sécurité selon les critères de l’organisation. Il faut éviter de traiter chaque message étrange comme une catastrophe. Une classification aide à agir avec calme et méthode.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Plusieurs échecs de connexion peuvent être une erreur de saisie. Ils deviennent plus préoccupants avec d’autres signaux crédibles.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Explique pourquoi une alerte seule ne prouve pas une intrusion.</p><details><summary>Afficher un corrigé expliqué</summary><p>Une alerte détecte une condition ou un comportement ; des vérifications supplémentaires sont nécessaires pour comprendre sa cause et son importance.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Détecter n’est pas encore conclure.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un incident est un événement affectant la sécurité ou susceptible d’y porter atteinte. Un simple dysfonctionnement n’est pas nécessairement une attaque.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Qu’est-ce qu’un incident ? » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 2 / 8 · Fondations</span><h2>Préparation avant tout incident</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>La réponse aux incidents commence avant la crise : responsables désignés, contacts à jour, sauvegardes, procédures, outils adaptés et exercices. Il faut savoir quels services sont vitaux et quelles actions nécessitent une autorisation. Une procédure courte et répétée est souvent plus utile qu’un document introuvable pendant une panne.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Une entreprise note un numéro de contact de secours et la personne autorisée à décider de suspendre un service.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Liste quatre informations utiles dans une fiche de préparation.</p><details><summary>Afficher un corrigé expliqué</summary><p>Exemple : responsable et suppléant, liste de services critiques, procédure de signalement, contacts techniques.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>La préparation réduit les improvisations risquées.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Avant une crise, définis les rôles, les moyens de contact et l’ordre des priorités. Teste le plan avec un scénario fictif.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Préparation avant tout incident » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 3 / 8 · Fondations</span><h2>Recevoir un signalement</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Un signalement efficace précise : qui a observé quoi, à quelle heure, quel service est touché et quels effets visibles sont constatés. On sépare les faits des suppositions. Il ne faut pas demander à un utilisateur de manipuler davantage un appareil suspect ou de supprimer des traces sans procédure. Les équipes compétentes déterminent ensuite la marche à suivre.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Un collaborateur signale « le site affiche une erreur depuis 10 h 15 sur mon poste » plutôt que « on nous a piratés ».</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Réécris « tout est cassé » en un signalement factuel de deux phrases pour un incident fictif.</p><details><summary>Afficher un corrigé expliqué</summary><p>Exemple : « Le portail ne charge plus depuis 10 h 15 sur deux postes testés. Un message d’erreur apparaît à l’ouverture. »</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Des faits précis permettent des décisions plus fiables.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un signalement utile décrit ce qui a été observé, quand, sur quel équipement et qui a été informé, sans effacer les éléments utiles.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Recevoir un signalement » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 4 / 8 · Approfondissement</span><h2>Triage et gravité</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Le triage évalue la gravité et l’urgence : nombre d’utilisateurs touchés, données concernées, durée probable, obligations applicables et risques pour l’activité. Un incident touchant un service de santé essentiel ne se gère pas comme un bug cosmétique. Les seuils doivent être prévus à l’avance et adaptés aux contraintes de l’organisation.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Une panne empêchant les commandes des clients pendant une heure peut demander une escalade plus rapide qu’un défaut d’icône.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Classe deux situations : indisponibilité du système de caisse et erreur de couleur sur le site, avec justification.</p><details><summary>Afficher un corrigé expliqué</summary><p>La caisse est généralement plus prioritaire car elle affecte directement l’activité. Le contexte exact peut cependant changer la décision.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>La gravité combine impact, contexte et urgence.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>L’urgence dépend de l’importance du service affecté, du volume de données et de la possibilité que la situation s’étende.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Triage et gravité » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 5 / 8 · Approfondissement</span><h2>Limiter l’impact et conserver les preuves</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Une fois un incident confirmé, l’équipe autorisée peut limiter l’impact selon son plan. Il faut éviter toute action improvisée susceptible d’aggraver la situation ou de détruire des éléments d’analyse. Les journaux et observations utiles doivent être conservés conformément aux règles internes et aux obligations légales. L’objectif est de protéger le service et de comprendre ce qui s’est produit.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Pendant une panne suspecte, une personne non autorisée ne devrait pas supprimer les fichiers de journaux « pour nettoyer ».</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Pourquoi une organisation doit-elle conserver une chronologie des événements et des décisions ?</p><details><summary>Afficher un corrigé expliqué</summary><p>Elle aide à comprendre la séquence, justifier les actions, coordonner les intervenants et tirer les leçons de l’incident.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Agir vite ne doit pas empêcher d’agir correctement.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>L’équipe autorisée isole si nécessaire les éléments concernés tout en respectant ses procédures de conservation des traces.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Limiter l’impact et conserver les preuves » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 6 / 8 · Approfondissement</span><h2>Rétablir un service</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Le rétablissement consiste à remettre le service dans un état acceptable et surveillé. Une restauration issue d’une sauvegarde doit être vérifiée avant le retour à un fonctionnement normal. Les objectifs RTO (temps maximal visé pour rétablir) et RPO (perte maximale de données visée dans le temps) aident à planifier la continuité ; ce sont des objectifs, non des garanties automatiques.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Avec un RPO cible de 4 heures, on accepte de devoir potentiellement reconstituer au maximum environ 4 heures de données selon le scénario.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Une organisation veut rétablir son site en moins de deux heures : parle-t-on d’un RTO ou d’un RPO ?</p><details><summary>Afficher un corrigé expliqué</summary><p>D’un RTO : objectif de durée de rétablissement. Le RPO concerne la quantité de données qu’on risque de perdre, exprimée en durée.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>RTO = temps de reprise ; RPO = point de reprise des données.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Restaurer ne signifie pas seulement redémarrer. Il faut vérifier que le service fonctionne et que la cause du problème a été traitée.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Rétablir un service » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 7 / 8 · Mise en pratique</span><h2>Communication de crise</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>La communication précise ce qui est confirmé, ce qui reste inconnu, les impacts et le prochain point d’information. On adapte le message aux équipes, à la direction et aux utilisateurs. Les obligations de notification à des autorités ou personnes concernées doivent être évaluées par les responsables compétents selon le contexte. Il faut éviter d’accuser sans preuves ou de promettre un délai irréaliste.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>« Le service est indisponible depuis 14 h. Nos équipes analysent la panne. Prochaine information à 15 h. » est plus utile qu’un message vague et rassurant sans faits.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Rédige trois phrases pour informer des clients d’une panne fictive sans inventer sa cause.</p><details><summary>Afficher un corrigé expliqué</summary><p>Exemple : « Notre espace client est momentanément indisponible. Nous recherchons la cause et travaillons au rétablissement. Une nouvelle information sera publiée dès qu’un élément confirmé sera disponible. »</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Une bonne communication distingue certitudes et inconnues.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Lors d’une crise, communique des faits vérifiés, ce qui reste inconnu et la date du prochain point de situation.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Communication de crise » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 8 / 8 · Mise en pratique</span><h2>Retours d’expérience et amélioration</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Après le retour à la normale, un retour d’expérience cherche les causes, les décisions efficaces, les difficultés et les actions à conduire. Son but est d’améliorer les systèmes et l’organisation, non de désigner des coupables sans preuve. Chaque action doit avoir un responsable et une échéance. Une équipe solide apprend aussi des incidents mineurs.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Après une panne, le plan prévoyait une liste de contacts qui n’était plus à jour ; une action corrective consiste à la vérifier chaque trimestre.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Propose deux actions mesurables après un incident fictif où la restauration a pris trop longtemps.</p><details><summary>Afficher un corrigé expliqué</summary><p>Exemple : réaliser un exercice de restauration tous les trois mois et définir un RTO validé avec la direction.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Un incident bien analysé peut améliorer la résilience.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un retour d’expérience cherche à améliorer les processus plutôt qu’à attribuer automatiquement la faute à une personne.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Retours d’expérience et amélioration » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card\"><h2>Pour approfondir auprès de sources reconnues</h2><p>Ces liens servent de références pédagogiques. Les explications et exemples de ce cours sont rédigés spécialement pour CyberDirecteur ; ils ne constituent pas une traduction des contenus des organismes.</p><ul class=\"source-links\"><li><a href=\"https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20-french-translation\" rel=\"noopener noreferrer\" target=\"_blank\">NIST CSF 2.0</a></li><li><a href=\"https://cyber.gouv.fr/\" rel=\"noopener noreferrer\" target=\"_blank\">ANSSI — Cyber.gouv.fr</a></li></ul></section></div><p class=\"source-links\">Pour aller plus loin : <a href=\"https://www.cisa.gov/resources-tools/resources/incident-response-playbooks\" rel=\"noopener noreferrer\" target=\"_blank\">documentation spécialisée (source externe)</a>.</p>"
+    },
+    {
+      "title": "Devenir RSSI — leadership, gouvernance et stratégie",
+      "html": "<div class=\"premium-only premium-academy\"><header class=\"premium-intro\"><span class=\"eyebrow\">CYBERDIRECTEUR ACADÉMIE · MODULE 6/6</span><h2>Devenir RSSI — leadership, gouvernance et stratégie</h2><p>Ce parcours est rédigé pour les débutants. Lis chaque leçon dans l’ordre, essaie l’exercice avant d’afficher le corrigé, puis explique le concept avec tes propres mots. Aucun exercice ne demande d’agir sur un système qui ne t’appartient pas.</p><div class=\"lesson-metrics\"><span>📘 8 leçons</span><span>✍️ 8 exercices corrigés</span><span>🎯 Débutant → pratique</span></div><nav aria-label=\"Sommaire du module\" class=\"premium-toc\"><strong>Au programme</strong><ol><li>Le rôle exact d’un RSSI</li><li>Gouvernance et responsabilités</li><li>Faire un état des lieux</li><li>Fixer une feuille de route réaliste</li><li>Comprendre un budget cyber</li><li>Indicateurs et présentation à la direction</li><li>Coordonner une équipe et ses prestataires</li><li>Projet final : comité de direction fictif</li></ol></nav></header><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 1 / 8 · Fondations</span><h2>Le rôle exact d’un RSSI</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Le responsable de la sécurité des systèmes d’information (RSSI, souvent appelé CISO en anglais) pilote la gestion des risques numériques. Il ne passe pas toutes ses journées à programmer. Son travail réunit compréhension technique, stratégie, coordination, budget, sensibilisation et communication avec la direction. Les responsabilités varient selon la taille de l’organisation.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Dans une PME, le RSSI peut collaborer avec le responsable informatique et un prestataire ; dans un grand groupe, il coordonne plusieurs équipes.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Pourquoi être très bon en informatique ne suffit-il pas pour devenir RSSI ?</p><details><summary>Afficher un corrigé expliqué</summary><p>Il faut également expliquer des risques, décider de priorités, gérer des responsabilités et travailler avec d’autres métiers.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Un RSSI traduit un risque technique en choix d’entreprise.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Le RSSI organise la gestion des risques et conseille la direction ; il ne remplace pas tous les spécialistes techniques.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Le rôle exact d’un RSSI » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 2 / 8 · Fondations</span><h2>Gouvernance et responsabilités</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>La gouvernance répond à des questions comme : qui décide ? quelles informations doivent être protégées ? quel niveau de risque accepte-t-on ? qui contrôle la mise en œuvre ? Le RSSI propose une stratégie et la direction valide souvent des arbitrages importants. Les politiques définissent des règles ; les procédures expliquent comment les appliquer. Les rôles doivent être clairs pour éviter les oublis.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Une politique dit « les comptes sensibles utilisent la MFA » ; une procédure explique comment l’activer et que faire en cas de perte de l’appareil.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Explique la différence entre politique et procédure dans un exemple de sauvegarde.</p><details><summary>Afficher un corrigé expliqué</summary><p>Politique : « toutes les données essentielles sont sauvegardées ». Procédure : fréquence, responsabilité, méthode de contrôle et test de restauration.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Une règle est utile lorsqu’elle est applicable et vérifiable.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Définis qui décide, qui exécute, qui approuve et qui contrôle. Les décisions importantes doivent avoir des responsables identifiés.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Gouvernance et responsabilités » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 3 / 8 · Fondations</span><h2>Faire un état des lieux</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Avant de proposer une solution, le RSSI inventorie les données, services, prestataires et risques les plus importants. Il discute avec les métiers pour comprendre les conséquences d’une panne. Cet état des lieux peut être structuré selon les fonctions du NIST CSF 2.0. Les entretiens et documents existants sont aussi importants que les outils de sécurité.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Une société de livraison considère son système de commandes essentiel à l’activité quotidienne.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Nomme cinq questions que tu poserais au responsable d’une petite boutique en ligne.</p><details><summary>Afficher un corrigé expliqué</summary><p>Exemples : quels services sont indispensables, qui les administre, quelles données sont traitées, quelles sauvegardes existent, et quelles interruptions seraient les plus coûteuses ?</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Comprendre l’activité vient avant la technologie.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un état des lieux honnête commence par les actifs, les dépendances et les risques les plus importants, sans supposer que tout est protégé.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Faire un état des lieux » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 4 / 8 · Approfondissement</span><h2>Fixer une feuille de route réaliste</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Une feuille de route liste des résultats à atteindre sur quelques mois : inventaire, protection des comptes, procédures, formations et tests. Chaque action possède un propriétaire, une échéance et un indicateur. Une bonne stratégie équilibre les gains rapides et les projets plus longs. Trop d’objectifs simultanés peuvent épuiser les équipes et réduire les résultats.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Premier trimestre : revoir les comptes et tester les sauvegardes ; trimestre suivant : formaliser la réponse aux incidents.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Propose trois actions pour les 90 premiers jours d’un RSSI dans une PME, en justifiant l’ordre.</p><details><summary>Afficher un corrigé expliqué</summary><p>Exemple : identifier les services critiques, vérifier les accès sensibles, puis tester la reprise d’activité. L’ordre exact dépend des risques déjà connus.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Une stratégie doit pouvoir être exécutée, pas seulement présentée.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Une feuille de route utile contient des étapes réalisables, des responsables, des moyens, des dépendances et un critère de réussite.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Fixer une feuille de route réaliste » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 5 / 8 · Approfondissement</span><h2>Comprendre un budget cyber</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Un budget contient coûts initiaux et récurrents : formations, logiciels, équipements, prestataires, maintenance et temps des équipes. Le RSSI doit expliquer le risque réduit et le coût global, plutôt que d’annoncer qu’un produit est indispensable. Les prix doivent venir de devis, non d’estimations présentées comme garanties. Il faut réserver aussi du temps aux tests et à la maintenance.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Un service coûte 40 € par mois : son coût de licence annuel est 480 €, avant tout autre frais.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Une licence coûte 25 € par mois et un atelier de formation 150 € : calcule le total de première année hors taxes éventuelles.</p><details><summary>Afficher un corrigé expliqué</summary><p>25 × 12 + 150 = 450 €. Il faut encore tenir compte des éventuels frais non mentionnés et des taxes applicables.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Le coût total compte davantage que le prix affiché.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un budget comprend aussi la maintenance, les formations, le temps des équipes et les éventuels coûts récurrents.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Comprendre un budget cyber » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 6 / 8 · Approfondissement</span><h2>Indicateurs et présentation à la direction</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Un indicateur doit éclairer une décision : part de sauvegardes testées, délai moyen de correction des défauts importants ou taux de comptes sensibles avec MFA. Une valeur isolée peut tromper ; on compare à un objectif, à une tendance et au périmètre mesuré. Un tableau de bord doit distinguer les risques ouverts, les actions réalisées et les points à arbitrer.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Dire « 9 sauvegardes sur 10 ont réussi un test de restauration » informe mieux que « nos sauvegardes sont bonnes ».</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Calcule le pourcentage si 8 sauvegardes sur 10 ont réussi leur test.</p><details><summary>Afficher un corrigé expliqué</summary><p>8 ÷ 10 × 100 = 80 %. Cela décrit ces dix tests seulement, pas toute la sécurité de l’organisation.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Mesurer aide à piloter, mais un seul chiffre n’explique pas tout.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un indicateur doit aider à prendre une décision. Exemple : proportion de postes corrigés dans le délai défini, avec contexte.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Indicateurs et présentation à la direction » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 7 / 8 · Mise en pratique</span><h2>Coordonner une équipe et ses prestataires</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Un RSSI travaille avec informatique, direction, ressources humaines, juridique, métiers et fournisseurs. Il clarifie les tâches, respecte les compétences de chacun et anticipe les dépendances. Une relation saine avec les prestataires exige des exigences contractuelles réalistes, un suivi et une procédure en cas d’incident. La sécurité n’est pas un département isolé.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>Une plateforme dépend d’un prestataire cloud ; l’entreprise doit savoir qui surveille le service et qui contacte le fournisseur en cas de panne.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Rédige un exemple de répartition des responsabilités pour une sauvegarde.</p><details><summary>Afficher un corrigé expliqué</summary><p>Le métier définit les données essentielles, l’équipe technique met en œuvre, le RSSI vérifie les exigences et la direction arbitre les ressources.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Une responsabilité claire évite les angles morts.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Un bon responsable écoute les équipes, clarifie les priorités et évite de promettre un risque nul.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Coordonner une équipe et ses prestataires » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card premium-deep\"><span class=\"eyebrow\">LEÇON 8 / 8 · Mise en pratique</span><h2>Projet final : comité de direction fictif</h2><div class=\"lesson-detail\"><h3>Comprendre pas à pas</h3><p>Tu es RSSI d’une école fictive qui utilise une plateforme de devoirs. Les risques repérés sont : comptes insuffisamment protégés, sauvegardes jamais testées et absence de procédure de crise. Tu dois proposer trois actions, un ordre, des responsables et des indicateurs, en expliquant les compromis. Il s’agit d’un exercice de gouvernance, pas d’une intervention sur un vrai système.</p><div class=\"example\"><strong>🔎 Exemple concret</strong><p>La direction demande une présentation de deux minutes avec les résultats attendus à trois mois.</p></div><div class=\"practice\"><strong>✍️ À toi de réfléchir</strong><p>Prépare un tableau : risque, mesure, responsable, échéance, indicateur de succès.</p><details><summary>Afficher un corrigé expliqué</summary><p>Exemple : comptes → MFA des accès sensibles → équipe informatique → mois 1 → couverture MFA ; sauvegardes → test de restauration → équipe technique → mois 2 → succès des tests ; crise → exercice de simulation → direction et RSSI → mois 3 → compte rendu et actions.</p></details></div><div class=\"recap\"><strong>À retenir</strong><p>Le meilleur RSSI fait comprendre les choix et vérifie leur efficacité.</p></div></div><div class=\"deep-dive\"><h3>Comprendre encore mieux : pourquoi est-ce important ?</h3><p>Présente à la direction fictive trois risques prioritaires, leurs conséquences, un plan et un budget justifié.</p><h3>Expliquer avec tes propres mots</h3><p>Imagine que tu dois expliquer « Projet final : comité de direction fictif » à un camarade qui débute. Écris une définition en deux phrases, un exemple quotidien et une précaution à retenir. Compare ensuite avec le cours avant de continuer.</p><div class=\"recap\"><strong>Mini-bilan</strong><p>Peux-tu définir la notion, reconnaître un cas réel et expliquer pourquoi un responsable cybersécurité doit s’en préoccuper ? Si non, relis le paragraphe et refais l’exercice corrigé.</p></div></div></section><section class=\"lesson-card\"><h2>Pour approfondir auprès de sources reconnues</h2><p>Ces liens servent de références pédagogiques. Les explications et exemples de ce cours sont rédigés spécialement pour CyberDirecteur ; ils ne constituent pas une traduction des contenus des organismes.</p><ul class=\"source-links\"><li><a href=\"https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20-french-translation\" rel=\"noopener noreferrer\" target=\"_blank\">NIST CSF 2.0</a></li><li><a href=\"https://learn.microsoft.com/en-us/security/zero-trust/microsoft-365-zero-trust\" rel=\"noopener noreferrer\" target=\"_blank\">Zero Trust Microsoft</a></li><li><a href=\"https://cyber.gouv.fr/\" rel=\"noopener noreferrer\" target=\"_blank\">ANSSI — Cyber.gouv.fr</a></li></ul></section></div><p class=\"source-links\">Pour aller plus loin : <a href=\"https://www.nist.gov/cyberframework\" rel=\"noopener noreferrer\" target=\"_blank\">documentation spécialisée (source externe)</a>.</p>"
+    }
+  ],
+  "questions": [
+    {
+      "topic": 0,
+      "question": "Quel appareil relie généralement le réseau de la maison à Internet ?",
+      "options": [
+        "Le routeur",
+        "Le clavier",
+        "Le disque dur",
+        "L’écran"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : Le routeur. Le routeur fait circuler les données entre ton réseau local et Internet. Pourquoi ? Repère le trajet des données : appareil local, routeur, fournisseur, services DNS et serveur. Chaque composant remplit un rôle distinct. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Repère le trajet des données : appareil local, routeur, fournisseur, services DNS et serveur."
+    },
+    {
+      "topic": 0,
+      "question": "Que signifie « réseau local » ?",
+      "options": [
+        "Un site web mondial",
+        "Un compte utilisateur",
+        "Un antivirus",
+        "Un réseau dans un espace limité"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : Un réseau dans un espace limité. Un réseau local relie des appareils dans un lieu comme une maison ou une école. Pourquoi ? Repère le trajet des données : appareil local, routeur, fournisseur, services DNS et serveur. Chaque composant remplit un rôle distinct. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Repère le trajet des données : appareil local, routeur, fournisseur, services DNS et serveur."
+    },
+    {
+      "topic": 0,
+      "question": "Quel est le rôle d’un serveur web ?",
+      "options": [
+        "Charger la batterie",
+        "Dessiner les icônes",
+        "Répondre aux requêtes des navigateurs",
+        "Remplacer le Wi-Fi"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Répondre aux requêtes des navigateurs. Le serveur web reçoit des demandes HTTP et renvoie les ressources demandées. Pourquoi ? Repère le trajet des données : appareil local, routeur, fournisseur, services DNS et serveur. Chaque composant remplit un rôle distinct. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Repère le trajet des données : appareil local, routeur, fournisseur, services DNS et serveur."
+    },
+    {
+      "topic": 0,
+      "question": "Pourquoi utilise-t-on une adresse IP ?",
+      "options": [
+        "Pour mesurer la batterie",
+        "Pour acheminer les données sur le réseau",
+        "Pour choisir une police",
+        "Pour compresser une photo"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Pour acheminer les données sur le réseau. L’adresse IP permet aux équipements réseau d’acheminer des paquets vers une destination. Pourquoi ? Repère le trajet des données : appareil local, routeur, fournisseur, services DNS et serveur. Chaque composant remplit un rôle distinct. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Repère le trajet des données : appareil local, routeur, fournisseur, services DNS et serveur."
+    },
+    {
+      "topic": 0,
+      "question": "Que fait un navigateur lorsqu’il visite un site ?",
+      "options": [
+        "Il demande des ressources à un serveur",
+        "Il efface le routeur",
+        "Il remplace le système",
+        "Il désactive le DNS"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : Il demande des ressources à un serveur. Le navigateur envoie des requêtes et interprète les réponses reçues. Pourquoi ? Repère le trajet des données : appareil local, routeur, fournisseur, services DNS et serveur. Chaque composant remplit un rôle distinct. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Repère le trajet des données : appareil local, routeur, fournisseur, services DNS et serveur."
+    },
+    {
+      "topic": 0,
+      "question": "À quoi sert le DNS ?",
+      "options": [
+        "À sauvegarder des photos",
+        "À régler la luminosité",
+        "À réparer un clavier",
+        "À associer des noms de domaine à des adresses IP"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : À associer des noms de domaine à des adresses IP. Le DNS permet notamment de retrouver l’adresse IP associée à un nom de domaine. Pourquoi ? Repère le trajet des données : appareil local, routeur, fournisseur, services DNS et serveur. Chaque composant remplit un rôle distinct. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Repère le trajet des données : appareil local, routeur, fournisseur, services DNS et serveur."
+    },
+    {
+      "topic": 1,
+      "question": "À quoi sert un système d’exploitation ?",
+      "options": [
+        "À fabriquer le processeur",
+        "À remplacer Internet",
+        "À chiffrer chaque fichier automatiquement",
+        "À gérer le matériel et les programmes"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : À gérer le matériel et les programmes. Windows et Linux gèrent les ressources, les utilisateurs et les applications. Pourquoi ? Distingue le système, l’utilisateur et les droits. Une bonne pratique est de limiter les permissions et de vérifier les mises à jour. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Distingue le système, l’utilisateur et les droits."
+    },
+    {
+      "topic": 1,
+      "question": "Pourquoi installer les mises à jour ?",
+      "options": [
+        "Pour augmenter toujours la mémoire vive",
+        "Pour éviter toute sauvegarde",
+        "Pour corriger notamment des failles de sécurité",
+        "Pour supprimer tous les mots de passe"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Pour corriger notamment des failles de sécurité. Les correctifs réparent des défauts, dont certains peuvent exposer le système. Pourquoi ? Distingue le système, l’utilisateur et les droits. Une bonne pratique est de limiter les permissions et de vérifier les mises à jour. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Distingue le système, l’utilisateur et les droits."
+    },
+    {
+      "topic": 1,
+      "question": "Que signifie le principe du moindre privilège ?",
+      "options": [
+        "Partager un seul compte",
+        "Donner uniquement les droits nécessaires",
+        "Donner les droits administrateur à tous",
+        "Ne jamais se connecter"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Donner uniquement les droits nécessaires. Moins de permissions limite les dégâts possibles en cas d’erreur ou de compromission. Pourquoi ? Distingue le système, l’utilisateur et les droits. Une bonne pratique est de limiter les permissions et de vérifier les mises à jour. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Distingue le système, l’utilisateur et les droits."
+    },
+    {
+      "topic": 1,
+      "question": "Quel dossier contient généralement les fichiers personnels sous Linux ?",
+      "options": [
+        "Le dossier personnel de l’utilisateur",
+        "Le dossier du noyau",
+        "Le dossier des pilotes",
+        "Le dossier de démarrage réseau"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : Le dossier personnel de l’utilisateur. Chaque utilisateur possède normalement un répertoire personnel pour ses fichiers. Pourquoi ? Distingue le système, l’utilisateur et les droits. Une bonne pratique est de limiter les permissions et de vérifier les mises à jour. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Distingue le système, l’utilisateur et les droits."
+    },
+    {
+      "topic": 1,
+      "question": "Pourquoi éviter de travailler toujours comme administrateur ?",
+      "options": [
+        "Pour améliorer la couleur de l’écran",
+        "Pour accélérer automatiquement Internet",
+        "Pour désactiver les sauvegardes",
+        "Pour limiter l’effet d’une erreur"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : Pour limiter l’effet d’une erreur. Un compte ordinaire limite les modifications sensibles réalisables par accident. Pourquoi ? Distingue le système, l’utilisateur et les droits. Une bonne pratique est de limiter les permissions et de vérifier les mises à jour. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Distingue le système, l’utilisateur et les droits."
+    },
+    {
+      "topic": 1,
+      "question": "Qu’est-ce qu’un processus ?",
+      "options": [
+        "Un câble réseau",
+        "Un mot de passe chiffré",
+        "Un programme en cours d’exécution",
+        "Un type de souris"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Un programme en cours d’exécution. Le système suit les programmes qui s’exécutent sous forme de processus. Pourquoi ? Distingue le système, l’utilisateur et les droits. Une bonne pratique est de limiter les permissions et de vérifier les mises à jour. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Distingue le système, l’utilisateur et les droits."
+    },
+    {
+      "topic": 2,
+      "question": "À quoi sert une variable en Python ?",
+      "options": [
+        "À changer le processeur",
+        "À remplacer une sauvegarde",
+        "À conserver une valeur",
+        "À ouvrir un port réseau"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : À conserver une valeur. Une variable donne un nom à une valeur pour pouvoir la réutiliser. Pourquoi ? Pour raisonner en Python, identifie les données d’entrée, le traitement et le résultat attendu, puis teste sur un cas simple. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Pour raisonner en Python, identifie les données d’entrée, le traitement et le résultat attendu, puis teste sur un cas simple."
+    },
+    {
+      "topic": 2,
+      "question": "Que fait une condition if ?",
+      "options": [
+        "Elle installe Python",
+        "Elle exécute du code selon une condition",
+        "Elle répète toujours le code",
+        "Elle supprime les erreurs"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Elle exécute du code selon une condition. if permet de choisir une action lorsque l’expression testée est vraie. Pourquoi ? Pour raisonner en Python, identifie les données d’entrée, le traitement et le résultat attendu, puis teste sur un cas simple. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Pour raisonner en Python, identifie les données d’entrée, le traitement et le résultat attendu, puis teste sur un cas simple."
+    },
+    {
+      "topic": 2,
+      "question": "À quoi sert une boucle for ?",
+      "options": [
+        "À répéter une opération sur des éléments",
+        "À chiffrer tous les fichiers",
+        "À lancer un serveur public",
+        "À réparer une connexion"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : À répéter une opération sur des éléments. Une boucle parcourt des éléments et exécute un bloc pour chacun. Pourquoi ? Pour raisonner en Python, identifie les données d’entrée, le traitement et le résultat attendu, puis teste sur un cas simple. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Pour raisonner en Python, identifie les données d’entrée, le traitement et le résultat attendu, puis teste sur un cas simple."
+    },
+    {
+      "topic": 2,
+      "question": "Pourquoi écrire des commentaires ?",
+      "options": [
+        "Pour augmenter la RAM",
+        "Pour exécuter plus vite à coup sûr",
+        "Pour supprimer les variables",
+        "Pour expliquer le code aux lecteurs"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : Pour expliquer le code aux lecteurs. Les commentaires documentent l’intention et facilitent la maintenance. Pourquoi ? Pour raisonner en Python, identifie les données d’entrée, le traitement et le résultat attendu, puis teste sur un cas simple. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Pour raisonner en Python, identifie les données d’entrée, le traitement et le résultat attendu, puis teste sur un cas simple."
+    },
+    {
+      "topic": 2,
+      "question": "Que représente une liste Python ?",
+      "options": [
+        "Une adresse physique",
+        "Un mot de passe temporaire",
+        "Une collection ordonnée de valeurs",
+        "Une règle de pare-feu"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Une collection ordonnée de valeurs. Une liste regroupe plusieurs éléments dans un ordre défini. Pourquoi ? Pour raisonner en Python, identifie les données d’entrée, le traitement et le résultat attendu, puis teste sur un cas simple. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Pour raisonner en Python, identifie les données d’entrée, le traitement et le résultat attendu, puis teste sur un cas simple."
+    },
+    {
+      "topic": 2,
+      "question": "Pourquoi tester un script sur des données fictives ?",
+      "options": [
+        "Pour contourner des autorisations",
+        "Pour apprendre sans exposer de vraies données",
+        "Pour garantir zéro erreur",
+        "Pour éviter d’écrire du code"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Pour apprendre sans exposer de vraies données. Les exemples fictifs permettent de pratiquer sans manipuler des informations sensibles. Pourquoi ? Pour raisonner en Python, identifie les données d’entrée, le traitement et le résultat attendu, puis teste sur un cas simple. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Pour raisonner en Python, identifie les données d’entrée, le traitement et le résultat attendu, puis teste sur un cas simple."
+    },
+    {
+      "topic": 3,
+      "question": "Pourquoi utiliser un mot de passe différent par site ?",
+      "options": [
+        "Pour supprimer les attaques",
+        "Pour limiter les dégâts d’une fuite",
+        "Pour éviter les mises à jour",
+        "Pour rendre le Wi-Fi plus rapide"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Pour limiter les dégâts d’une fuite. Si un service fuit, un mot de passe unique empêche sa réutilisation ailleurs. Pourquoi ? La protection de l’identité combine mots de passe uniques, authentification multifacteur et contrôle des accès. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "La protection de l’identité combine mots de passe uniques, authentification multifacteur et contrôle des accès."
+    },
+    {
+      "topic": 3,
+      "question": "Que signifie MFA ?",
+      "options": [
+        "Authentification multifacteur",
+        "Mémoire de fichier automatique",
+        "Mode de filtrage anonyme",
+        "Mesure de fréquence audio"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : Authentification multifacteur. La MFA combine plusieurs facteurs de vérification lors de la connexion. Pourquoi ? La protection de l’identité combine mots de passe uniques, authentification multifacteur et contrôle des accès. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "La protection de l’identité combine mots de passe uniques, authentification multifacteur et contrôle des accès."
+    },
+    {
+      "topic": 3,
+      "question": "À quoi sert un gestionnaire de mots de passe ?",
+      "options": [
+        "À publier ses mots de passe",
+        "À désactiver les comptes",
+        "À effacer les sauvegardes",
+        "À conserver des identifiants de manière protégée"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : À conserver des identifiants de manière protégée. Il aide à utiliser des mots de passe uniques et complexes sans les mémoriser tous. Pourquoi ? La protection de l’identité combine mots de passe uniques, authentification multifacteur et contrôle des accès. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "La protection de l’identité combine mots de passe uniques, authentification multifacteur et contrôle des accès."
+    },
+    {
+      "topic": 3,
+      "question": "Qu’est-ce qu’une permission d’accès ?",
+      "options": [
+        "Une sauvegarde automatique",
+        "Une adresse DNS",
+        "Une règle définissant ce qu’un compte peut faire",
+        "Un type de processeur"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Une règle définissant ce qu’un compte peut faire. Les autorisations déterminent les ressources et actions accessibles à un compte. Pourquoi ? La protection de l’identité combine mots de passe uniques, authentification multifacteur et contrôle des accès. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "La protection de l’identité combine mots de passe uniques, authentification multifacteur et contrôle des accès."
+    },
+    {
+      "topic": 3,
+      "question": "Que faire lorsqu’un compte semble compromis ?",
+      "options": [
+        "Désactiver les journaux",
+        "Changer les accès et vérifier les sessions",
+        "Partager le mot de passe",
+        "Ignorer les alertes"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Changer les accès et vérifier les sessions. Il faut sécuriser le compte, révoquer les sessions suspectes et demander de l’aide si nécessaire. Pourquoi ? La protection de l’identité combine mots de passe uniques, authentification multifacteur et contrôle des accès. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "La protection de l’identité combine mots de passe uniques, authentification multifacteur et contrôle des accès."
+    },
+    {
+      "topic": 3,
+      "question": "Quel facteur est basé sur un objet que tu possèdes ?",
+      "options": [
+        "Une clé de sécurité physique",
+        "Une question de connaissance",
+        "Un mot de passe mémorisé",
+        "Un pseudonyme public"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : Une clé de sécurité physique. Une clé de sécurité est un facteur de possession, différent d’un secret mémorisé. Pourquoi ? La protection de l’identité combine mots de passe uniques, authentification multifacteur et contrôle des accès. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "La protection de l’identité combine mots de passe uniques, authentification multifacteur et contrôle des accès."
+    },
+    {
+      "topic": 4,
+      "question": "Quel est le but d’un message de phishing ?",
+      "options": [
+        "Tromper pour obtenir une action ou une information",
+        "Mettre à jour le navigateur",
+        "Installer un clavier",
+        "Mesurer la vitesse du réseau"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : Tromper pour obtenir une action ou une information. Le phishing manipule le destinataire pour lui faire révéler des données ou agir. Pourquoi ? Face à un message suspect, vérifie l’expéditeur par un autre canal et ne communique pas de secret. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Face à un message suspect, vérifie l’expéditeur par un autre canal et ne communique pas de secret."
+    },
+    {
+      "topic": 4,
+      "question": "Quel signe peut rendre un courriel suspect ?",
+      "options": [
+        "Une signature professionnelle",
+        "Un objet clair",
+        "Un texte bien écrit",
+        "Une demande urgente de mot de passe"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : Une demande urgente de mot de passe. La pression et les demandes de secrets sont des signaux d’alerte. Pourquoi ? Face à un message suspect, vérifie l’expéditeur par un autre canal et ne communique pas de secret. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Face à un message suspect, vérifie l’expéditeur par un autre canal et ne communique pas de secret."
+    },
+    {
+      "topic": 4,
+      "question": "Que faire face à un lien inattendu ?",
+      "options": [
+        "Le transférer à tout le monde",
+        "Donner son code MFA",
+        "Vérifier sa destination par un canal fiable",
+        "Cliquer immédiatement"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Vérifier sa destination par un canal fiable. Il vaut mieux accéder au service via son adresse habituelle plutôt que le lien reçu. Pourquoi ? Face à un message suspect, vérifie l’expéditeur par un autre canal et ne communique pas de secret. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Face à un message suspect, vérifie l’expéditeur par un autre canal et ne communique pas de secret."
+    },
+    {
+      "topic": 4,
+      "question": "Pourquoi un expéditeur affiché peut-il tromper ?",
+      "options": [
+        "Il garantit la sécurité",
+        "Son nom visible peut être imité",
+        "Il prouve toujours son identité",
+        "Il chiffre tous les fichiers"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Son nom visible peut être imité. Un nom d’affichage ne constitue pas une preuve suffisante de l’origine. Pourquoi ? Face à un message suspect, vérifie l’expéditeur par un autre canal et ne communique pas de secret. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Face à un message suspect, vérifie l’expéditeur par un autre canal et ne communique pas de secret."
+    },
+    {
+      "topic": 4,
+      "question": "Qu’est-ce que l’ingénierie sociale ?",
+      "options": [
+        "La manipulation des personnes",
+        "La réparation des câbles",
+        "La fabrication des serveurs",
+        "Le calcul des adresses IP"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : La manipulation des personnes. L’ingénierie sociale exploite la confiance ou les émotions plutôt qu’une faille technique. Pourquoi ? Face à un message suspect, vérifie l’expéditeur par un autre canal et ne communique pas de secret. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Face à un message suspect, vérifie l’expéditeur par un autre canal et ne communique pas de secret."
+    },
+    {
+      "topic": 4,
+      "question": "À qui signaler un message suspect à l’école ?",
+      "options": [
+        "À tous les contacts",
+        "À l’expéditeur en donnant ses données",
+        "À un inconnu sur un forum",
+        "À un adulte ou responsable informatique de confiance"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : À un adulte ou responsable informatique de confiance. Un signalement responsable aide à vérifier et protéger les autres. Pourquoi ? Face à un message suspect, vérifie l’expéditeur par un autre canal et ne communique pas de secret. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Face à un message suspect, vérifie l’expéditeur par un autre canal et ne communique pas de secret."
+    },
+    {
+      "topic": 5,
+      "question": "À quoi sert la validation des entrées ?",
+      "options": [
+        "À rendre le logo plus grand",
+        "À supprimer la connexion",
+        "À changer les couleurs",
+        "À vérifier les données reçues"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : À vérifier les données reçues. Une application doit vérifier les données avant de les utiliser. Pourquoi ? Sur le Web, sépare le navigateur, le serveur et les données. Une connexion chiffrée ne rend pas automatiquement un site fiable. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Sur le Web, sépare le navigateur, le serveur et les données."
+    },
+    {
+      "topic": 5,
+      "question": "Que signifie contrôler les autorisations ?",
+      "options": [
+        "Masquer le bouton dans le navigateur",
+        "Rendre le site public",
+        "Vérifier si l’utilisateur a le droit d’agir",
+        "Vérifier seulement la taille de l’écran"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Vérifier si l’utilisateur a le droit d’agir. Les droits doivent être contrôlés côté serveur pour chaque opération sensible. Pourquoi ? Sur le Web, sépare le navigateur, le serveur et les données. Une connexion chiffrée ne rend pas automatiquement un site fiable. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Sur le Web, sépare le navigateur, le serveur et les données."
+    },
+    {
+      "topic": 5,
+      "question": "Pourquoi protéger les sessions ?",
+      "options": [
+        "Pour supprimer les comptes",
+        "Pour empêcher l’utilisation abusive d’une connexion",
+        "Pour augmenter la luminosité",
+        "Pour remplacer le DNS"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Pour empêcher l’utilisation abusive d’une connexion. Une session authentifiée donne accès à un compte et doit être protégée. Pourquoi ? Sur le Web, sépare le navigateur, le serveur et les données. Une connexion chiffrée ne rend pas automatiquement un site fiable. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Sur le Web, sépare le navigateur, le serveur et les données."
+    },
+    {
+      "topic": 5,
+      "question": "À quoi sert OWASP ?",
+      "options": [
+        "À partager des ressources sur la sécurité des applications",
+        "À vendre des routeurs",
+        "À héberger tous les sites",
+        "À remplacer les navigateurs"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : À partager des ressources sur la sécurité des applications. OWASP publie des guides et projets pour améliorer la sécurité applicative. Pourquoi ? Sur le Web, sépare le navigateur, le serveur et les données. Une connexion chiffrée ne rend pas automatiquement un site fiable. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Sur le Web, sépare le navigateur, le serveur et les données."
+    },
+    {
+      "topic": 5,
+      "question": "Pourquoi HTTPS ne suffit-il pas à sécuriser un site ?",
+      "options": [
+        "Il n’utilise aucun chiffrement",
+        "Il bloque toutes les attaques",
+        "Il supprime les serveurs",
+        "Le code et les accès peuvent encore comporter des failles"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : Le code et les accès peuvent encore comporter des failles. HTTPS protège le transport, mais pas toutes les erreurs de l’application. Pourquoi ? Sur le Web, sépare le navigateur, le serveur et les données. Une connexion chiffrée ne rend pas automatiquement un site fiable. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Sur le Web, sépare le navigateur, le serveur et les données."
+    },
+    {
+      "topic": 5,
+      "question": "Où vérifier les permissions d’un compte pour une action sensible ?",
+      "options": [
+        "Seulement dans le navigateur",
+        "Dans le nom du fichier",
+        "Sur le serveur",
+        "Seulement dans le CSS"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Sur le serveur. Un contrôle uniquement côté navigateur peut être contourné ; le serveur doit vérifier les droits. Pourquoi ? Sur le Web, sépare le navigateur, le serveur et les données. Une connexion chiffrée ne rend pas automatiquement un site fiable. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Sur le Web, sépare le navigateur, le serveur et les données."
+    },
+    {
+      "topic": 6,
+      "question": "À quoi sert un pare-feu ?",
+      "options": [
+        "À dessiner les pages",
+        "À alimenter les écrans",
+        "À filtrer les communications selon des règles",
+        "À sauvegarder les fichiers"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : À filtrer les communications selon des règles. Un pare-feu autorise ou bloque certains flux selon une politique définie. Pourquoi ? Un réseau sécurisé repose sur des règles compréhensibles, une segmentation adaptée et la surveillance des équipements. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Un réseau sécurisé repose sur des règles compréhensibles, une segmentation adaptée et la surveillance des équipements."
+    },
+    {
+      "topic": 6,
+      "question": "Pourquoi segmenter un réseau ?",
+      "options": [
+        "Pour rendre les mots de passe publics",
+        "Pour limiter les déplacements entre zones",
+        "Pour partager tous les accès",
+        "Pour supprimer le routeur"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Pour limiter les déplacements entre zones. La segmentation sépare les usages et limite la propagation d’un incident. Pourquoi ? Un réseau sécurisé repose sur des règles compréhensibles, une segmentation adaptée et la surveillance des équipements. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Un réseau sécurisé repose sur des règles compréhensibles, une segmentation adaptée et la surveillance des équipements."
+    },
+    {
+      "topic": 6,
+      "question": "À quoi sert un VPN ?",
+      "options": [
+        "À établir un tunnel protégé entre points",
+        "À rendre tous les sites honnêtes",
+        "À supprimer les logiciels malveillants",
+        "À remplacer toutes les sauvegardes"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : À établir un tunnel protégé entre points. Un VPN protège le transport dans un tunnel mais ne résout pas tous les risques. Pourquoi ? Un réseau sécurisé repose sur des règles compréhensibles, une segmentation adaptée et la surveillance des équipements. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Un réseau sécurisé repose sur des règles compréhensibles, une segmentation adaptée et la surveillance des équipements."
+    },
+    {
+      "topic": 6,
+      "question": "Que veut dire surveiller les journaux réseau ?",
+      "options": [
+        "Effacer toutes les traces",
+        "Partager les identifiants",
+        "Désactiver les alertes",
+        "Examiner les événements et anomalies"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : Examiner les événements et anomalies. Les journaux aident à repérer et comprendre des activités anormales. Pourquoi ? Un réseau sécurisé repose sur des règles compréhensibles, une segmentation adaptée et la surveillance des équipements. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Un réseau sécurisé repose sur des règles compréhensibles, une segmentation adaptée et la surveillance des équipements."
+    },
+    {
+      "topic": 6,
+      "question": "Pourquoi isoler le Wi-Fi invité ?",
+      "options": [
+        "Pour éviter les mises à jour",
+        "Pour supprimer le DNS",
+        "Pour séparer les visiteurs des ressources internes",
+        "Pour augmenter le nombre de câbles"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Pour séparer les visiteurs des ressources internes. Un réseau invité séparé réduit l’accès aux ressources sensibles. Pourquoi ? Un réseau sécurisé repose sur des règles compréhensibles, une segmentation adaptée et la surveillance des équipements. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Un réseau sécurisé repose sur des règles compréhensibles, une segmentation adaptée et la surveillance des équipements."
+    },
+    {
+      "topic": 6,
+      "question": "Une règle de pare-feu doit-elle être revue ?",
+      "options": [
+        "Seulement quand le clavier tombe en panne",
+        "Oui, selon les besoins et les risques",
+        "Non, jamais",
+        "Seulement après un changement d’écran"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Oui, selon les besoins et les risques. Les besoins changent : des règles anciennes peuvent ouvrir des accès inutiles. Pourquoi ? Un réseau sécurisé repose sur des règles compréhensibles, une segmentation adaptée et la surveillance des équipements. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Un réseau sécurisé repose sur des règles compréhensibles, une segmentation adaptée et la surveillance des équipements."
+    },
+    {
+      "topic": 7,
+      "question": "Qu’est-ce qu’un journal informatique ?",
+      "options": [
+        "Une sauvegarde papier obligatoire",
+        "Une trace d’événements sur un système",
+        "Un antivirus physique",
+        "Un type de routeur"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Une trace d’événements sur un système. Les journaux enregistrent des actions et événements utiles à l’analyse. Pourquoi ? Un incident se traite avec méthode : confirmer, évaluer, limiter, rétablir et tirer les leçons. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Un incident se traite avec méthode : confirmer, évaluer, limiter, rétablir et tirer les leçons."
+    },
+    {
+      "topic": 7,
+      "question": "Pourquoi préparer un plan d’incident ?",
+      "options": [
+        "Pour agir de façon coordonnée",
+        "Pour éviter de communiquer",
+        "Pour garantir aucune attaque",
+        "Pour supprimer les sauvegardes"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : Pour agir de façon coordonnée. Un plan clarifie les rôles, les décisions et les étapes en situation difficile. Pourquoi ? Un incident se traite avec méthode : confirmer, évaluer, limiter, rétablir et tirer les leçons. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Un incident se traite avec méthode : confirmer, évaluer, limiter, rétablir et tirer les leçons."
+    },
+    {
+      "topic": 7,
+      "question": "Que signifie contenir un incident ?",
+      "options": [
+        "Supprimer les preuves",
+        "Partager tous les accès",
+        "Ignorer les alertes",
+        "Limiter sa propagation et son impact"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : Limiter sa propagation et son impact. Le confinement cherche à empêcher le problème de toucher d’autres ressources. Pourquoi ? Un incident se traite avec méthode : confirmer, évaluer, limiter, rétablir et tirer les leçons. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Un incident se traite avec méthode : confirmer, évaluer, limiter, rétablir et tirer les leçons."
+    },
+    {
+      "topic": 7,
+      "question": "Pourquoi conserver des éléments de preuve ?",
+      "options": [
+        "Pour accélérer le Wi-Fi",
+        "Pour remplacer le plan",
+        "Pour comprendre les faits et faciliter l’analyse",
+        "Pour publier les données personnelles"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Pour comprendre les faits et faciliter l’analyse. Des traces préservées permettent une investigation fiable et responsable. Pourquoi ? Un incident se traite avec méthode : confirmer, évaluer, limiter, rétablir et tirer les leçons. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Un incident se traite avec méthode : confirmer, évaluer, limiter, rétablir et tirer les leçons."
+    },
+    {
+      "topic": 7,
+      "question": "Que faire après la restauration d’un service ?",
+      "options": [
+        "Rendre tous les comptes administrateurs",
+        "Analyser les leçons et améliorer les protections",
+        "Oublier immédiatement l’incident",
+        "Supprimer tous les journaux"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Analyser les leçons et améliorer les protections. Le retour d’expérience aide à éviter une répétition. Pourquoi ? Un incident se traite avec méthode : confirmer, évaluer, limiter, rétablir et tirer les leçons. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Un incident se traite avec méthode : confirmer, évaluer, limiter, rétablir et tirer les leçons."
+    },
+    {
+      "topic": 7,
+      "question": "Pourquoi distinguer une alerte d’un incident confirmé ?",
+      "options": [
+        "Une alerte doit être vérifiée avant conclusion",
+        "Toutes les alertes sont des attaques",
+        "Une alerte n’a jamais d’intérêt",
+        "Les incidents ne laissent aucune trace"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : Une alerte doit être vérifiée avant conclusion. Une alerte indique un événement à examiner, pas forcément une compromission. Pourquoi ? Un incident se traite avec méthode : confirmer, évaluer, limiter, rétablir et tirer les leçons. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Un incident se traite avec méthode : confirmer, évaluer, limiter, rétablir et tirer les leçons."
+    },
+    {
+      "topic": 8,
+      "question": "Pourquoi faire des sauvegardes ?",
+      "options": [
+        "Pour pouvoir restaurer des données perdues",
+        "Pour éviter les mises à jour",
+        "Pour accélérer automatiquement Internet",
+        "Pour remplacer les mots de passe"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : Pour pouvoir restaurer des données perdues. Une sauvegarde offre une copie récupérable après perte ou incident. Pourquoi ? Une sauvegarde doit être indépendante et restaurable : le simple fait d’avoir une copie ne garantit pas une reprise réussie. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Une sauvegarde doit être indépendante et restaurable : le simple fait d’avoir une copie ne garantit pas une reprise réussie."
+    },
+    {
+      "topic": 8,
+      "question": "Pourquoi tester la restauration ?",
+      "options": [
+        "Pour rendre le fichier plus joli",
+        "Pour supprimer l’original",
+        "Pour partager les accès",
+        "Pour vérifier que les copies sont utilisables"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : Pour vérifier que les copies sont utilisables. Une sauvegarde non testée peut être inutilisable au moment critique. Pourquoi ? Une sauvegarde doit être indépendante et restaurable : le simple fait d’avoir une copie ne garantit pas une reprise réussie. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Une sauvegarde doit être indépendante et restaurable : le simple fait d’avoir une copie ne garantit pas une reprise réussie."
+    },
+    {
+      "topic": 8,
+      "question": "Que signifie la continuité d’activité ?",
+      "options": [
+        "Supprimer les pannes définitivement",
+        "Éviter tout budget",
+        "Maintenir les fonctions essentielles en cas de perturbation",
+        "Ne jamais arrêter un ordinateur"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Maintenir les fonctions essentielles en cas de perturbation. La continuité organise le maintien des activités prioritaires malgré une interruption. Pourquoi ? Une sauvegarde doit être indépendante et restaurable : le simple fait d’avoir une copie ne garantit pas une reprise réussie. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Une sauvegarde doit être indépendante et restaurable : le simple fait d’avoir une copie ne garantit pas une reprise réussie."
+    },
+    {
+      "topic": 8,
+      "question": "Pourquoi conserver une copie isolée ?",
+      "options": [
+        "Pour rendre les données publiques",
+        "Pour réduire les risques de perte simultanée",
+        "Pour augmenter la taille des écrans",
+        "Pour remplacer le chiffrement"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Pour réduire les risques de perte simultanée. Une copie isolée est moins exposée à un incident touchant les copies connectées. Pourquoi ? Une sauvegarde doit être indépendante et restaurable : le simple fait d’avoir une copie ne garantit pas une reprise réussie. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Une sauvegarde doit être indépendante et restaurable : le simple fait d’avoir une copie ne garantit pas une reprise réussie."
+    },
+    {
+      "topic": 8,
+      "question": "Quel document aide à planifier la reprise ?",
+      "options": [
+        "Un plan de reprise d’activité",
+        "Un catalogue de polices",
+        "Un historique de navigateur",
+        "Une liste de raccourcis"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : Un plan de reprise d’activité. Le plan de reprise précise les ressources et étapes pour rétablir les services. Pourquoi ? Une sauvegarde doit être indépendante et restaurable : le simple fait d’avoir une copie ne garantit pas une reprise réussie. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Une sauvegarde doit être indépendante et restaurable : le simple fait d’avoir une copie ne garantit pas une reprise réussie."
+    },
+    {
+      "topic": 8,
+      "question": "Quelle donnée sauvegarder en priorité ?",
+      "options": [
+        "Uniquement les fonds d’écran",
+        "Uniquement les caches temporaires",
+        "Uniquement les fichiers vides",
+        "Les données importantes et difficiles à remplacer"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : Les données importantes et difficiles à remplacer. Les priorités dépendent de l’importance et de la possibilité de récupérer les données. Pourquoi ? Une sauvegarde doit être indépendante et restaurable : le simple fait d’avoir une copie ne garantit pas une reprise réussie. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Une sauvegarde doit être indépendante et restaurable : le simple fait d’avoir une copie ne garantit pas une reprise réussie."
+    },
+    {
+      "topic": 9,
+      "question": "Qu’est-ce qu’une vulnérabilité ?",
+      "options": [
+        "Une sauvegarde récente",
+        "Un appareil éteint",
+        "Une mise à jour réussie",
+        "Une faiblesse exploitable dans un système"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : Une faiblesse exploitable dans un système. Une vulnérabilité est une faiblesse qui peut être exploitée par une menace. Pourquoi ? Pour gérer les risques, identifie les actifs, les scénarios, les impacts et les mesures de réduction, puis documente la décision. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Pour gérer les risques, identifie les actifs, les scénarios, les impacts et les mesures de réduction, puis documente la décision."
+    },
+    {
+      "topic": 9,
+      "question": "Qu’est-ce que l’impact d’un risque ?",
+      "options": [
+        "La vitesse de frappe",
+        "Le nombre de fenêtres",
+        "La gravité des conséquences possibles",
+        "Le prix du clavier"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : La gravité des conséquences possibles. L’impact évalue les dommages possibles pour l’organisation. Pourquoi ? Pour gérer les risques, identifie les actifs, les scénarios, les impacts et les mesures de réduction, puis documente la décision. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Pour gérer les risques, identifie les actifs, les scénarios, les impacts et les mesures de réduction, puis documente la décision."
+    },
+    {
+      "topic": 9,
+      "question": "Pourquoi classer les risques par priorité ?",
+      "options": [
+        "Pour acheter tout le matériel",
+        "Pour concentrer les moyens sur les plus importants",
+        "Pour ignorer tous les petits incidents",
+        "Pour éviter de décider"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Pour concentrer les moyens sur les plus importants. Le temps et les budgets sont limités : il faut traiter les risques selon leur importance. Pourquoi ? Pour gérer les risques, identifie les actifs, les scénarios, les impacts et les mesures de réduction, puis documente la décision. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Pour gérer les risques, identifie les actifs, les scénarios, les impacts et les mesures de réduction, puis documente la décision."
+    },
+    {
+      "topic": 9,
+      "question": "À quoi sert une politique de sécurité ?",
+      "options": [
+        "À fixer des règles et responsabilités communes",
+        "À choisir la couleur du site",
+        "À remplacer les sauvegardes",
+        "À interdire toute formation"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : À fixer des règles et responsabilités communes. Elle définit des attentes et responsabilités cohérentes pour l’organisation. Pourquoi ? Pour gérer les risques, identifie les actifs, les scénarios, les impacts et les mesures de réduction, puis documente la décision. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Pour gérer les risques, identifie les actifs, les scénarios, les impacts et les mesures de réduction, puis documente la décision."
+    },
+    {
+      "topic": 9,
+      "question": "Pourquoi documenter les décisions ?",
+      "options": [
+        "Pour cacher les problèmes",
+        "Pour supprimer la surveillance",
+        "Pour éviter les audits",
+        "Pour expliquer les choix et suivre les actions"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : Pour expliquer les choix et suivre les actions. La documentation permet de justifier et réévaluer les mesures. Pourquoi ? Pour gérer les risques, identifie les actifs, les scénarios, les impacts et les mesures de réduction, puis documente la décision. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Pour gérer les risques, identifie les actifs, les scénarios, les impacts et les mesures de réduction, puis documente la décision."
+    },
+    {
+      "topic": 9,
+      "question": "Qui doit comprendre les risques importants ?",
+      "options": [
+        "Uniquement les visiteurs",
+        "Personne en dehors du serveur",
+        "La direction et les responsables concernés",
+        "Uniquement le fournisseur de clavier"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : La direction et les responsables concernés. La gestion des risques est aussi une décision de gouvernance. Pourquoi ? Pour gérer les risques, identifie les actifs, les scénarios, les impacts et les mesures de réduction, puis documente la décision. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Pour gérer les risques, identifie les actifs, les scénarios, les impacts et les mesures de réduction, puis documente la décision."
+    },
+    {
+      "topic": 10,
+      "question": "Que signifie « cloud » ?",
+      "options": [
+        "Un antivirus obligatoire",
+        "Un dossier caché",
+        "Des services informatiques fournis à distance",
+        "Un seul câble réseau"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Des services informatiques fournis à distance. Le cloud permet d’utiliser des ressources hébergées par un fournisseur. Pourquoi ? Dans le cloud, les responsabilités sont partagées : le fournisseur sécurise certaines couches, le client doit configurer les siennes. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Dans le cloud, les responsabilités sont partagées : le fournisseur sécurise certaines couches, le client doit configurer les siennes."
+    },
+    {
+      "topic": 10,
+      "question": "Pourquoi parle-t-on de responsabilité partagée dans le cloud ?",
+      "options": [
+        "Tous les comptes sont publics",
+        "Client et fournisseur ont chacun des tâches de sécurité",
+        "Le fournisseur garantit tout sans configuration",
+        "Le client n’a aucun devoir"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Client et fournisseur ont chacun des tâches de sécurité. Les responsabilités varient selon le service et doivent être clairement définies. Pourquoi ? Dans le cloud, les responsabilités sont partagées : le fournisseur sécurise certaines couches, le client doit configurer les siennes. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Dans le cloud, les responsabilités sont partagées : le fournisseur sécurise certaines couches, le client doit configurer les siennes."
+    },
+    {
+      "topic": 10,
+      "question": "Quel est un exemple de mauvaise configuration cloud ?",
+      "options": [
+        "Un stockage sensible rendu public par erreur",
+        "Une authentification activée",
+        "Une sauvegarde testée",
+        "Un accès limité"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : Un stockage sensible rendu public par erreur. Des paramètres d’accès trop ouverts peuvent exposer les données. Pourquoi ? Dans le cloud, les responsabilités sont partagées : le fournisseur sécurise certaines couches, le client doit configurer les siennes. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Dans le cloud, les responsabilités sont partagées : le fournisseur sécurise certaines couches, le client doit configurer les siennes."
+    },
+    {
+      "topic": 10,
+      "question": "Que signifie Zero Trust ?",
+      "options": [
+        "Faire confiance à tout le réseau interne",
+        "Supprimer toutes les identités",
+        "Désactiver la journalisation",
+        "Vérifier explicitement les accès"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : Vérifier explicitement les accès. Zero Trust ne suppose pas qu’une connexion est sûre simplement parce qu’elle est interne. Pourquoi ? Dans le cloud, les responsabilités sont partagées : le fournisseur sécurise certaines couches, le client doit configurer les siennes. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Dans le cloud, les responsabilités sont partagées : le fournisseur sécurise certaines couches, le client doit configurer les siennes."
+    },
+    {
+      "topic": 10,
+      "question": "Pourquoi journaliser les accès cloud ?",
+      "options": [
+        "Pour remplacer le MFA",
+        "Pour supprimer les droits",
+        "Pour repérer des actions suspectes et enquêter",
+        "Pour changer la couleur des serveurs"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Pour repérer des actions suspectes et enquêter. Les journaux d’accès rendent les activités observables. Pourquoi ? Dans le cloud, les responsabilités sont partagées : le fournisseur sécurise certaines couches, le client doit configurer les siennes. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Dans le cloud, les responsabilités sont partagées : le fournisseur sécurise certaines couches, le client doit configurer les siennes."
+    },
+    {
+      "topic": 10,
+      "question": "Pourquoi limiter les permissions des services cloud ?",
+      "options": [
+        "Pour partager les clés",
+        "Pour réduire l’impact d’un compte compromis",
+        "Pour augmenter les frais",
+        "Pour empêcher les sauvegardes"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Pour réduire l’impact d’un compte compromis. Des permissions minimales limitent les actions possibles en cas de compromission. Pourquoi ? Dans le cloud, les responsabilités sont partagées : le fournisseur sécurise certaines couches, le client doit configurer les siennes. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Dans le cloud, les responsabilités sont partagées : le fournisseur sécurise certaines couches, le client doit configurer les siennes."
+    },
+    {
+      "topic": 11,
+      "question": "Quel est le rôle principal d’un RSSI ?",
+      "options": [
+        "Remplacer le directeur financier",
+        "Piloter les risques et la stratégie de sécurité",
+        "Réparer seulement les claviers",
+        "Dessiner uniquement les logos"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Piloter les risques et la stratégie de sécurité. Le RSSI organise la protection de l’information avec les équipes et la direction. Pourquoi ? Le RSSI priorise les risques, explique les arbitrages et organise les responsabilités, sans promettre la sécurité absolue. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Le RSSI priorise les risques, explique les arbitrages et organise les responsabilités, sans promettre la sécurité absolue."
+    },
+    {
+      "topic": 11,
+      "question": "Pourquoi un RSSI présente-t-il des budgets ?",
+      "options": [
+        "Pour financer des mesures selon les priorités",
+        "Pour acheter systématiquement le plus cher",
+        "Pour éviter tout contrôle",
+        "Pour supprimer les formations"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : Pour financer des mesures selon les priorités. Il justifie les investissements selon les risques et bénéfices attendus. Pourquoi ? Le RSSI priorise les risques, explique les arbitrages et organise les responsabilités, sans promettre la sécurité absolue. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Le RSSI priorise les risques, explique les arbitrages et organise les responsabilités, sans promettre la sécurité absolue."
+    },
+    {
+      "topic": 11,
+      "question": "Que signifie KPI dans le pilotage ?",
+      "options": [
+        "Un câble réseau particulier",
+        "Un type de mot de passe",
+        "Un système d’exploitation",
+        "Un indicateur clé de performance"
+      ],
+      "correct": 3,
+      "explanation": "Réponse attendue : Un indicateur clé de performance. Les KPI aident à mesurer des progrès comme le déploiement du MFA. Pourquoi ? Le RSSI priorise les risques, explique les arbitrages et organise les responsabilités, sans promettre la sécurité absolue. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Le RSSI priorise les risques, explique les arbitrages et organise les responsabilités, sans promettre la sécurité absolue."
+    },
+    {
+      "topic": 11,
+      "question": "Pourquoi former les équipes ?",
+      "options": [
+        "Les sauvegardes sont interdites",
+        "Les risques disparaissent entièrement",
+        "Les comportements humains influencent la sécurité",
+        "Les outils deviennent inutiles"
+      ],
+      "correct": 2,
+      "explanation": "Réponse attendue : Les comportements humains influencent la sécurité. La sensibilisation complète les protections techniques. Pourquoi ? Le RSSI priorise les risques, explique les arbitrages et organise les responsabilités, sans promettre la sécurité absolue. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Le RSSI priorise les risques, explique les arbitrages et organise les responsabilités, sans promettre la sécurité absolue."
+    },
+    {
+      "topic": 11,
+      "question": "Comment expliquer un risque à la direction ?",
+      "options": [
+        "En promettant le risque zéro",
+        "Avec ses conséquences et les solutions possibles",
+        "Avec uniquement des acronymes",
+        "En cachant les impacts"
+      ],
+      "correct": 1,
+      "explanation": "Réponse attendue : Avec ses conséquences et les solutions possibles. Une communication claire relie le risque technique aux enjeux de l’organisation. Pourquoi ? Le RSSI priorise les risques, explique les arbitrages et organise les responsabilités, sans promettre la sécurité absolue. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Le RSSI priorise les risques, explique les arbitrages et organise les responsabilités, sans promettre la sécurité absolue."
+    },
+    {
+      "topic": 11,
+      "question": "Pourquoi organiser des exercices de crise ?",
+      "options": [
+        "Pour préparer les décisions et la coordination",
+        "Pour garantir zéro incident",
+        "Pour désactiver les procédures",
+        "Pour supprimer les responsabilités"
+      ],
+      "correct": 0,
+      "explanation": "Réponse attendue : Pour préparer les décisions et la coordination. Les simulations permettent de tester les rôles et d’améliorer les réactions. Pourquoi ? Le RSSI priorise les risques, explique les arbitrages et organise les responsabilités, sans promettre la sécurité absolue. Méthode : explique à voix haute pourquoi les autres propositions ne répondent pas exactement à la question, puis imagine un exemple dans une école ou une petite entreprise.",
+      "hint": "Le RSSI priorise les risques, explique les arbitrages et organise les responsabilités, sans promettre la sécurité absolue."
+    }
+  ]
+}
