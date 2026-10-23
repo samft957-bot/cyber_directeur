@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: cyberdirecteur
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/subscription/status
+    envVars:
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PRICE_MONTHLY
+        sync: false
+      - key: STRIPE_PRICE_ANNUAL
+        sync: false
+      - key: STRIPE_PRICE_LIFETIME
+        sync: false
+      - key: SITE_URL
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
